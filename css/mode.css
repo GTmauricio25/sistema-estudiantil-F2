@@ -1,0 +1,47 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave entre modos */
+}
+
+/* Modo Día (Clásico Claro) */
+body.light-mode {
+    background-color: #ffffff; /* Fondo blanco */
+    color: #000000;            /* Texto negro */
+}
+
+/* Modo Noche (Oscuro) */
+body.dark-mode {
+    background-color: #121212; /* Fondo oscuro */
+    color: #f1f1f1;            /* Texto claro */
+}
+
+/* Estilo del botón para cambiar de modo */
+.toggle-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+#mode-toggle {
+    background-color: #ffcc00; /* Color del botón */
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Cambiar color del botón en el modo oscuro */
+body.dark-mode #mode-toggle {
+    background-color: #000000; /* Botón en modo noche */
+}
+
+/* Efectos hover */
+#mode-toggle:hover {
+    opacity: 0.9;
+}
