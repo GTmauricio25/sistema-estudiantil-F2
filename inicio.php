@@ -29,6 +29,7 @@ include('includes/config.php');
                     <a href="matricula.php" class="link">Nuevo Ingreso</a>
                     <a href="#Especialidades" class="link">Oferta Academica</a>
                     <a href="#Nosotros" class="link link--active">Sobre nosotros</a>
+                    <a href="find-result.php" class="link link--active">Estudiante</a>
                     <a href="dashboard.php" class="link link--active">Admin</a>
                 </div>
             </div>
