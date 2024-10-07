@@ -1,0 +1,564 @@
+html {
+    scroll-behavior: smooth;
+}
+
+:root{
+    --gold1:#18ac0b;
+    --gold2:#ffffff;
+    --gray:#ffffff80;
+    --gray2:#f7d9d990;
+    --letras:#fff;
+    --black1: #1A1B1F;
+    --black2: #30353B;
+    --shadow: 0 8px 8px;
+    --color_shadow: #00000033;
+    /*de prueba*/
+    --color1 :#275e3f;
+    --color2 : #366a46;
+    --color3 : #528c58;
+    --color4 : #80be76;
+    --color5 : #c5ffa0;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+.container {
+    width: 90%;
+    max-width: 1200px; /* Cambia el ancho máximo según necesites */
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 100px 0; /* Reduce el padding para hacer el contenedor más pequeño */
+    height: auto;
+}
+.nav__hero{
+    position: fixed;
+    color: #ffffff;
+    height: 75px; /* Ajusta la altura del navbar */
+    background-color: #275e3f; /* Añadir un fondo si no tiene */
+    width: 100%;
+    z-index: 1000;
+    transition: top 0.3s;
+}
+
+.nav__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: inherit;
+    padding: 0; /* Ajustar el padding horizontal */
+    background-color: #275e3f;
+}
+
+
+.logo__image {
+    width: 50px; /* Ajusta el tamaño de la imagen */
+    height: auto;
+    vertical-align: middle; /* Alinea la imagen con el texto */
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
+.link {
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+    font-weight: 300;
+    padding: 10px; 
+}
+
+.link--active {
+    color: var(--gold1);
+    font-weight: 600;
+}
+
+/* NUEVAS FUNCIONES */
+
+/* Cambiar el tamaño de la barra al hacer scroll */
+.nav__hero {
+    transition: all 0.5s ease; /* Transición suave para el cambio de tamaño */
+}
+
+.nav__hero.shrink {
+    height: 60px; /* Altura reducida de la barra al hacer scroll */
+}
+
+.shrink .logo__name {
+    font-size: 14px; /* Reducir el tamaño del logo cuando haces scroll */
+}
+
+.shrink .link {
+    padding: 25px; /* Reducir el padding de los enlaces cuando haces scroll */
+    font-size: 12px; /* Reducir el tamaño de fuente de los enlaces */
+}
+
+header {
+    width: 100%;
+    height: 500px;
+    background-image: url('../img2/Skewed.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+}
+
+header .textos {
+    margin-top: 140px;
+}
+
+header .titulo {
+    font-size: 85px;
+}
+
+header .subtitulo {
+    font-size: 42px;
+    font-weight: 300;
+    margin-bottom: 32px;
+}
+
+header .boton {
+    display: inline-block;
+    padding: 6px;
+    width: 128px;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 19px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 16px;
+}
+
+.sesgoabajo {
+    z-index: 10;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-width: 0 0 35vh 100vw;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+}
+
+.sesgoarriba {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-width: 35vh 100vw 0 0;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+    padding: 52px 0;
+}
+
+/* Main */
+
+.sobre-nosotros {
+    text-align: center;
+    font-size: 56px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.slogan {
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.parrafo {
+    margin-bottom: 13px;
+    font-weight: 300;
+    text-align: justify;
+    line-height: 24px;
+    color: rgb(24, 16, 16);
+}
+
+.acerca-de .boton {
+    display: inline-block;
+    padding: 6px;
+    width: 128px;
+    font-weight: 300;
+    border: 1px solid rgba(24, 16, 16, .7);
+    color: rgb(24, 16, 16);
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 16px;
+    margin-top: 24px;
+}
+
+.galeria {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.imagenes {
+    width: 20%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+.imagenes img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.encima {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(52, 73, 94, 0.815);
+}
+
+.encima h2 {
+    position: relative;
+    top: 45%;
+    text-align: center;
+    color: #fff;
+}
+
+.encima div {
+    position: relative;
+    display: block;
+    top: 46%;
+    width: 40px;
+    height: 5px;
+    background: #fff;
+    margin: auto;
+}
+
+.cards {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    margin: 0;
+    width: 30%;
+    height: 250px;
+    text-align: center;
+    padding: 20px;
+}
+
+.cards img {
+    width: 240px; /* Cambia este valor para ajustar el ancho de la miniatura */
+    height: 240px; /* Cambia este valor para ajustar la altura de la miniatura */
+    cursor: pointer;
+    transition: transform 0.5s ease; /* Transición suave al pasar el cursor */
+    border: 2px solid #ddd; /* Añade un borde claro */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+.cards img:hover {
+    transform: scale(1.2); /* Aumenta el tamaño de la imagen en un 10% cuando se pasa el cursor */
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); /* Agranda la sombra al pasar el ratón */
+}
+
+/* Estilos del modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;  /* Asegurar que el modal esté por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: hidden;  /* Evitar que se pueda hacer scroll cuando el modal está abierto */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    max-height: 100vh;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-content, .close {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+/* Desactivar el scroll en el body cuando el modal está abierto */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Ocultar el menú de navegación cuando el modal está abierto */
+body.modal-open nav {
+    display: none;
+}
+
+
+.fondo {
+    height: 900px;
+    position: relative;
+    background-image: url('../img2/fondo.png');
+    overflow: hidden;
+    background-attachment: fixed;
+    background-position: center;
+    padding-top: 130px;
+}
+
+.sesgoabajo-unico {
+    z-index: 10;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-width: 0 0 35vh 100vw;
+    border-style: solid;
+    border-color: transparent transparent #2c3e50 transparent;
+}
+
+.titulo-patrocinadores,
+.subtitulo-patrocinadores {
+    color: #fff;
+    text-align: center;
+}
+
+.titulo-patrocinadores {
+    font-size: 56px;
+    margin-top: 48px;
+}
+
+.subtitulo-patrocinadores {
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 64px;
+}
+
+.clientes {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 64px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.cliente {
+    width: 30%;
+}
+
+.cliente img {
+    width: 100%;
+}
+
+/* Footer */
+
+footer {
+    background: #2c3e50;
+    height: auto;
+}
+
+.titulo-footer,
+.subtitulo-footer {
+    color: #fff;
+    text-align: center;
+    font-weight: 400;
+    font-size: 56px;
+}
+
+.subtitulo-footer {
+    font-size: 16px;
+    margin-bottom: 64px;
+}
+
+form {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+input[type="text"],
+input[type="email"] {
+    display: inline-block;
+    width: 48%;
+    padding: 13px;
+    border: none;
+    color: #fff;
+    font-family: 'open sans';
+    background: rgba(37, 37, 33, .7);
+    margin-bottom: 16px;
+    border-top: 5px solid rgba(37, 37, 33, .7);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-top: 5px solid rgba(255, 255, 255, 0.7);
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 200px;
+    min-height: 200px;
+    background: rgba(37, 37, 33, .7);
+    padding: 13px;
+    border: none;
+    color: #fff;
+    font-family: 'open sans';
+    margin-bottom: 16px;
+}
+
+input[type="submit"] {
+    display: inline-block;
+    padding: 13px;
+    border: none;
+    color: #fff;
+    background: rgba(37, 37, 33, .7);
+    width: 96px;
+}
+
+/* Responsive */
+
+@media screen and (max-width:900px) {
+    .card {
+        width: 48%;
+    }
+}
+
+@media screen and (max-width:610px) {
+    header .textos {
+        margin-top: 130px;
+    }
+
+    header .titulo {
+        font-size: 65px;
+    }
+
+    .none {
+        display: none
+    }
+
+    .imagenes {
+        flex-grow: 1;
+    }
+
+    .card {
+        width: 70%;
+    }
+
+    .fondo {
+        height: auto;
+    }
+
+    .especial {
+        display: none;
+    }
+
+    .cliente {
+        width: 90%;
+        height: 200px;
+        margin-bottom: 50px;
+    }
+}
+
+@media screen and (max-width:380px) {
+    header .textos {
+        margin-top: 100px;
+    }
+
+    header .titulo {
+        font-size: 65px;
+    }
+
+    header .subtitulo {
+        font-size: 25px;
+        margin-bottom: 32px;
+    }
+
+    .sobre-nosotros {
+        font-size: 46px;
+    }
+
+    .slogan {
+        font-size: 20px;
+    }
+
+    .titulo-patrocinadores {
+        font-size: 46px;
+    }
+
+    .subtitulo-patrocinadores {
+        font-size: 20px;
+    }
+}
+
+
+@media screen and (max-width:700px){
+    main .container,
+    footer .container{
+        padding: 60px 0;
+    }
+
+    .nav__container{
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .nav__hero{
+        height: auto;
+    }
+
+    .logo{
+        padding: 15px 0 ;
+        text-align: center;
+    }
+
+    .links{
+        padding-bottom: 10px;
+        text-align: center;
+    }
+
+    .link{
+        padding: 7px 10px;
+    }
+
+}

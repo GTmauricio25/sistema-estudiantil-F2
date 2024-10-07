@@ -1,0 +1,163 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+.newsletter{
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 40px;
+    height: auto;
+    font-family: inherit;
+    position: relative;
+    border-radius: 6px;
+}
+
+.newsletter--modifier{
+    margin: 0;
+    width: 80%;
+}
+
+.newsletter__input{
+    width: 100%;
+    height: 100%;
+    padding: 22px 10px;
+    outline: none;
+    font-family: inherit;
+    border-radius: 6px;
+    border: 1px solid var(--black1)
+}
+
+
+.newsletter__submit{
+    position: absolute;
+    right: 8px;
+    top: 10%;
+    height: 80%;
+    background: linear-gradient(180deg, #275e3f 10%, var(--black1) 100%);
+    color: #fff;
+    padding: 0 15px;
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.footer{
+    background: #fafafa;
+}
+
+.footer__caption{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-evenly;
+}
+
+
+.title__footer{
+    font-size: 24px;
+    margin-bottom: 32px;
+}
+
+.download{
+    width: 50%;
+}
+
+.download__app{
+    display: flex;
+}
+
+.download__item {
+    display: flex;
+    padding: 18px 25px;
+    border-radius: 10px;
+    border: 1px solid var(--black2);
+    width: 42%;
+    align-items: center;
+    margin-right: 20px;
+    margin-bottom: 16px;
+    
+}
+
+.download__item a{
+    font-size: 18px;
+    margin-left: 30px;
+    text-decoration: none;
+    color: var(--black1);
+}
+
+.download__title{
+    font-size: 18px;
+    margin-left: 40px;
+}
+
+.footer__copy{
+    width: 100%;
+    color: var(--black2);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.copyright{
+    width: 100%;
+}
+
+.politica__privacidad{
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.politica__privacidad:hover{
+    text-decoration: underline;
+}
+
+.politica__privacidad--margin{
+    margin-right: 10px;
+}
+
+.projects .subtitle {
+    margin-top: 50px; /* Añade un margen superior para mover todo hacia abajo */
+}
+/* Ajuste general para la sección */
+.projects .subtitle{
+    margin-top: 50px;
+}
+
+
+.copy__sections {
+    margin-bottom: 40px;
+    font-size: 25px;
+}
+
+/* Contenedor principal con flexbox para organizar texto y pensum */
+.container-bg {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0; /* Espacio entre la información y el pensum */
+    padding: 20px;
+}
+
+/* Contenedor de la información adicional */
+.info-container {
+    width: 35%; /* Asegura que el texto ocupe un espacio adecuado a la izquierda */
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.info-container ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+/* Contenedor del pensum */
+.pensum-container {
+    width: 60%; /* El pensum ocupa más espacio para ser el enfoque principal */
+}
+
+.pensum-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
