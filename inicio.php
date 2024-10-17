@@ -43,7 +43,7 @@ include('includes/config.php');
             <a href="inicio-sesion.php" class="menu-item id="service-points">
                 <i class="fa-solid fa-graduation-cap"></i> Estudiante
             </a>
-            <a href="#" class="menu-item" id="online-chat">
+            <a href="https://web.whatsapp.com/" class="menu-item" id="online-chat">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp
             </a>
             <a href="inicio-sesion.php" class="menu-item" id="online-management">
@@ -558,13 +558,26 @@ include('includes/config.php');
                     </div>
                 </div>
             </section>
-            <section class="get-email">
-                <h3 class="title__footer">¿Estás listo para estudiar con nosotros?</h3>
-                <form class="newsletter newsletter--modifier">
-                    <input type="text" class="newsletter__input" placeholder="Ingresa tu email para mas info.">
-                    <input type="submit" class="newsletter__submit" value="Comienza hoy">
-                </form>
-            </section>
+    <section class="get-email">
+        <h3 class="title__footer">¿Estás listo para estudiar con nosotros?</h3>
+            <form class="newsletter newsletter--modifier" onsubmit="sendEmail(); return false;">
+                <input type="text" id="email" class="newsletter__input" placeholder="Ingresa tu email para más info.">
+                <input type="submit" class="newsletter__submit" value="Comienza hoy">
+            </form>
+    </section>
+
+    <script>
+        function sendEmail() {
+            var emailInput = document.getElementById("email").value;
+            var subject = "Información sobre el programa de estudios";
+            var body = "Hola, me gustaría recibir más información.";
+            var mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=heber28garcia@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Abre el correo con Gmail
+            window.open(mailtoLink, '_blank');
+        }
+    </script>
+
         </div>
 
         <!--<div class="contact">

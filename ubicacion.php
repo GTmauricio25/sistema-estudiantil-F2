@@ -20,33 +20,29 @@
                 <a href="inicio.php" class="link">Inicio</a>
                 <a href="matricula.php" class="link">Nuevo Ingreso</a>
                 <a href=" #Especialidades" class="link">Oferta Academica</a>
-                <a href="#" class="link">Modalidades Flexibles</a>
                 <a href="inicio.php" class="link link--active">Sobre nosotros</a>
                 <!--<a href="login.html" class="link link--active">Inicio Sesion</a>-->
             </div>
         </div>
     </nav>
 
-        <!-- Botón flotante -->
+      <!-- Botón flotante -->
     <div class="floating-btn">
         <button id="menu-btn"><i class="fa-solid fa-headset"></i></button>
-    
+
         <!-- Menú desplegable -->
-        <div class="menu">
-            <a href="https://wa.me/1234567890" target="_blank" class="menu-item" id="service-points">
-                <i class="fa-brands fa-whatsapp"></i> <!-- Ícono de WhatsApp -->
-                WhatsApp
+        <div class="menu" id="menu">
+            <a href="inicio-sesion.php" class="menu-item id="service-points">
+                <i class="fa-solid fa-graduation-cap"></i> Estudiante
             </a>
-            <a href="https://tuchatenlinea.com" target="_blank" class="menu-item" id="online-chat">
-                <i class="fa-regular fa-comments"></i> <!-- Ícono de chat en línea -->
-                Chat en línea
+            <a href="https://web.whatsapp.com/" class="menu-item" id="online-chat">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
             </a>
-            <a href="https://facebook.com/tuPagina" target="_blank" class="menu-item" id="online-management">
-                <i class="fa-brands fa-facebook"></i> <!-- Ícono de Facebook -->
-                Facebook
+            <a href="inicio-sesion.php" class="menu-item" id="online-management">
+                <i class="fa-solid fa-user-tie"></i> Administrador
             </a>
         </div>
-        </div>
+    </div>
 
         <section class="projects container"></section>
             <h2 class="subtitulos">Rutas que te llevan a nuestra institucion<span class="point"></span></h2>
@@ -83,12 +79,24 @@
                 </div>
             </section>
             <section class="get-email">
-                <h3 class="title__footer">¿Estás listo para estudiar con nosotros?</h3>
-                <form class="newsletter newsletter--modifier">
-                    <input type="text" class="newsletter__input" placeholder="Ingresa tu email para mas info.">
-                    <input type="submit" class="newsletter__submit" value="Comienza hoy">
-                </form>
-            </section>
+        <h3 class="title__footer">¿Estás listo para estudiar con nosotros?</h3>
+            <form class="newsletter newsletter--modifier" onsubmit="sendEmail(); return false;">
+                <input type="text" id="email" class="newsletter__input" placeholder="Ingresa tu email para más info.">
+                <input type="submit" class="newsletter__submit" value="Comienza hoy">
+            </form>
+    </section>
+
+    <script>
+        function sendEmail() {
+            var emailInput = document.getElementById("email").value;
+            var subject = "Información sobre el programa de estudios";
+            var body = "Hola, me gustaría recibir más información.";
+            var mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=heber28garcia@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Abre el correo con Gmail
+            window.open(mailtoLink, '_blank');
+        }
+    </script>
         </div>
 
         

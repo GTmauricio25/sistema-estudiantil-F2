@@ -25,25 +25,22 @@
     </nav>
 
         <!-- Botón flotante -->
-        <div class="floating-btn">
-            <button id="menu-btn"><i class="fa-solid fa-headset"></i></button>
-            
-            <!-- Menú desplegable -->
-            <div class="menu">
-                <a href="#" class="menu-item" id="service-points">
-                    <i class="fa-brands fa-whatsapp"></i> <!-- Ícono de puntos de servicio -->
-                    WhatsApp
-                </a>
-                <a href="#" class="menu-item" id="online-chat">
-                    <i class="fa-regular fa-comments"></i></i> <!-- Ícono de chat en línea -->
-                    Chat en línea
-                </a>
-                <a href="#" class="menu-item" id="online-management">
-                    <i class="fa-brands fa-facebook"></i> <!-- Ícono de gestiones en línea -->
-                    Facebook
-                </a>
-            </div>
+    <div class="floating-btn">
+        <button id="menu-btn"><i class="fa-solid fa-headset"></i></button>
+
+        <!-- Menú desplegable -->
+        <div class="menu" id="menu">
+            <a href="inicio-sesion.php" class="menu-item id="service-points">
+                <i class="fa-solid fa-graduation-cap"></i> Estudiante
+            </a>
+            <a href="https://web.whatsapp.com/" class="menu-item" id="online-chat">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="inicio-sesion.php" class="menu-item" id="online-management">
+                <i class="fa-solid fa-user-tie"></i> Administrador
+            </a>
         </div>
+    </div>
 
         <section class="projects container">
             <h2 class="subtitle">Proceso de matrícula<span class="point"></span></h2>
@@ -86,12 +83,24 @@
                 </div>
             </section>
             <section class="get-email">
-                <h3 class="title__footer">¿Estás listo para estudiar con nosotros?</h3>
-                <form class="newsletter newsletter--modifier">
-                    <input type="text" class="newsletter__input" placeholder="Ingresa tu email para mas info.">
-                    <input type="submit" class="newsletter__submit" value="Comienza hoy">
-                </form>
-            </section>
+        <h3 class="title__footer">¿Estás listo para estudiar con nosotros?</h3>
+            <form class="newsletter newsletter--modifier" onsubmit="sendEmail(); return false;">
+                <input type="text" id="email" class="newsletter__input" placeholder="Ingresa tu email para más info.">
+                <input type="submit" class="newsletter__submit" value="Comienza hoy">
+            </form>
+    </section>
+
+    <script>
+        function sendEmail() {
+            var emailInput = document.getElementById("email").value;
+            var subject = "Información sobre el programa de estudios";
+            var body = "Hola, me gustaría recibir más información.";
+            var mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=heber28garcia@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Abre el correo con Gmail
+            window.open(mailtoLink, '_blank');
+        }
+    </script>
         </div>
 
         
