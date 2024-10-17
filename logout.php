@@ -13,3 +13,5 @@ session_destroy(); // destroy session
 header("location:inicio.php"); 
 ?>
 
+
+

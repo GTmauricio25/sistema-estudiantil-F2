@@ -18,6 +18,7 @@ include('includes/config.php');
 
 </head>
 <body>
+
     <header class="hero">
         <nav class="nav__hero">
             <div class="container nav__container">
@@ -29,8 +30,6 @@ include('includes/config.php');
                     <a href="matricula.php" class="link">Nuevo Ingreso</a>
                     <a href="#Especialidades" class="link">Oferta Academica</a>
                     <a href="#Nosotros" class="link link--active">Sobre nosotros</a>
-                    <a href="find-result.php" class="link link--active">Estudiante</a>
-                    <a href="dashboard.php" class="link link--active">Admin</a>
                 </div>
             </div>
         </nav>
@@ -38,24 +37,20 @@ include('includes/config.php');
     <!-- Botón flotante -->
     <div class="floating-btn">
         <button id="menu-btn"><i class="fa-solid fa-headset"></i></button>
-    
+
         <!-- Menú desplegable -->
-        <div class="menu">
-            <a href="https://wa.me/1234567890" target="_blank" class="menu-item" id="service-points">
-                <i class="fa-brands fa-whatsapp"></i> <!-- Ícono de WhatsApp -->
-                WhatsApp
+        <div class="menu" id="menu">
+            <a href="inicio-sesion.php" class="menu-item id="service-points">
+                <i class="fa-solid fa-graduation-cap"></i> Estudiante
             </a>
-            <a href="https://tuchatenlinea.com" target="_blank" class="menu-item" id="online-chat">
-                <i class="fa-regular fa-comments"></i> <!-- Ícono de chat en línea -->
-                Chat en línea
+            <a href="#" class="menu-item" id="online-chat">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
             </a>
-            <a href="https://facebook.com/tuPagina" target="_blank" class="menu-item" id="online-management">
-                <i class="fa-brands fa-facebook"></i> <!-- Ícono de Facebook -->
-                Facebook
+            <a href="inicio-sesion.php" class="menu-item" id="online-management">
+                <i class="fa-solid fa-user-tie"></i> Administrador
             </a>
         </div>
     </div>
-
 
         <section class="container hero__main" id="Inicio">  
             <div class="hero__textos">
@@ -589,6 +584,8 @@ include('includes/config.php');
     </footer>
     <script src="./script.js"></script>
     <script src="boton.js"></script>
+    <script src="https://app.chatgptbuilder.io/webchat/plugin.js?v=5"></script><script>ktt10.setup({id:"TeIucBABakUjh",accountId:"1895821",color:"#18AC0B"})</script>
+
     <script>
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.nav__hero');

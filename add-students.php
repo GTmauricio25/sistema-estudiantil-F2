@@ -29,11 +29,11 @@ $query->execute();
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
 {
-$msg="Student info added successfully";
+$msg=" Estudiante añadido correctamente";
 }
 else 
 {
-$error="Something went wrong. Please try again";
+$error=" Hubo un error, intenta nuevamente";
 }
 
 }

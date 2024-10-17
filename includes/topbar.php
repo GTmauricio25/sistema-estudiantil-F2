@@ -47,7 +47,7 @@
             	<div class="container-fluid">
                     <div class="row">
                         <div class="navbar-header no-padding">
-                			<a class="navbar-brand" href="#">
+                			<a class="navbar-brand" href="inicio.php">
                 			    <img src="img/tablon.jpg" style="Width: 140px">
                 			</a>
                             <span class="small-nav-handle hidden-sm hidden-xs"><i class="fa fa-outdent"></i></span>

@@ -27,7 +27,7 @@
    
    }
    
-   ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -63,7 +63,7 @@
                         <div class="col-md-offset-2 col-md-10  pt-50">
                            <div class="row mt-30 ">
                               <div class="col-md-11">
-                                <div class="panel login-box" style="    background: #172541;">
+                                <div class="panel login-box" style="    background: #366a46;">
                                     <div class="panel-heading">
 
                                        <div class="text-center"><br>
@@ -112,5 +112,5 @@
          
          });
       </script>
-   </body>
+</body>
 </html>

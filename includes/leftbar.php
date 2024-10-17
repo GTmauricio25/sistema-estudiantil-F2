@@ -14,7 +14,7 @@
                                         <span class="">Sistema</span>
                                     </li>
                                     <li>
-                                        <a href="inicio.php"><i class="fa fa-dashboard"></i> <span>Inicio</span> </a>
+                                        <a href="dashboard.php"><i class="fa fa-dashboard"></i> <span>Inicio</span> </a>
                                      
                                     </li>
 

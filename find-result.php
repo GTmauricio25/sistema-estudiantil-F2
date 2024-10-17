@@ -31,12 +31,12 @@ include('includes/config.php');?>
             <div class="login-bg-color">
                 <div class="row">
                     <div class="col-md-4 col-md-offset-7">
-                        <div class="panel login-box" style="    background: #172541;">
+                        <div class="panel login-box" style="    background: #366a46;">
                             <div class="panel-heading">
                                 <div class="panel-title text-center">
                                     <a href="#">
-                    <img style="height: 70px" src="assets/images/footer-logo.png"></a>
-                                    <h3 class="text-white">Resultado de la busqueda</h3>
+                    <img style="height: 100px" src="img/logo instituto_Mesa de trabajo 1.png"></a>
+                                    <h3 class="text-white">Busqueda de usuario</h3>
                                 </div>
                             </div>
                             <div class="panel-body p-20">

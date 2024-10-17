@@ -11,7 +11,8 @@ body {
 .floating-btn {
     position: fixed;
     bottom: 50px; /* Puedes ajustar esto para la posición del botón flotante */
-    right: 50px;  /* Ajusta para mover horizontalmente el botón flotante */
+    top: 595px;
+    right: 90px;  /* Ajusta para mover horizontalmente el botón flotante */
     z-index: 1000;
 }
 
@@ -20,8 +21,8 @@ body {
     background-color: #18ac0b; /* Fondo del botón flotante */
     border: none;
     border-radius: 50%; /* Botón redondo */
-    width: 70px;
-    height: 70px;
+    width: 65px;
+    height: 65px;
     font-size: 24px;
     color: white;
     cursor: pointer;

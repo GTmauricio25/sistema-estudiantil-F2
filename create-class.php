@@ -21,11 +21,11 @@ $query->execute();
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
 {
-$msg="Class Created successfully";
+$msg=" Clase creada correctamente";
 }
 else 
 {
-$error="Something went wrong. Please try again";
+$error=" Hubo un error, intenta nuevamente.";
 }
 
 }
@@ -90,21 +90,21 @@ else if($error){?>
                                                         <label for="success" class="control-label">Nombre de la clase</label>
                                                 		<div class="">
                                                 			<input type="text" name="classname" class="form-control" required="required" id="success">
-                                                            <span class="help-block">Carrera: Sistemas, Petroleo, Mecanica</span>
+                                                            <span class="help-block">Carreras: Software, Mecanica, Automotriz, Electro, Itsi</span>
                                                 		</div>
                                                 	</div>
                                                        <div class="form-group has-success">
                                                         <label for="success" class="control-label">Numero del Semestre</label>
                                                         <div class="">
                                                             <input type="number" name="classnamenumeric" required="required" class="form-control" id="success">
-                                                            <span class="help-block">Semestre: 1,2,4,5 etc</span>
+                                                            <span class="help-block">ID de clase</span>
                                                         </div>
                                                     </div>
                                                      <div class="form-group has-success">
                                                         <label for="success" class="control-label">Seccion</label>
                                                         <div class="">
                                                             <input type="text" name="section" class="form-control" required="required" id="success">
-                                                            <span class="help-block">Pg01, Pg02</span>
+                                                            <span class="help-block">Codigo</span>
                                                         </div>
                                                     </div>
   <div class="form-group has-success">
