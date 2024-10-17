@@ -1,0 +1,757 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 17-10-2024 a las 15:28:30
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `upresult`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `UserName` varchar(100) DEFAULT NULL,
+  `Password` varchar(100) DEFAULT NULL,
+  `updationDate` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Volcado de datos para la tabla `admin`
+--
+
+INSERT INTO `admin` (`id`, `UserName`, `Password`, `updationDate`) VALUES
+(1, 'admin@gmail.com', '12345', '2024-10-04 06:00:00'),
+(5, 'administrador@gmail.com', '12345', '2024-10-04 06:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tblclasses`
+--
+
+CREATE TABLE `tblclasses` (
+  `id` int(11) NOT NULL,
+  `ClassName` varchar(80) DEFAULT NULL,
+  `ClassNameNumeric` int(4) DEFAULT NULL,
+  `Section` varchar(5) DEFAULT NULL,
+  `CreationDate` timestamp NULL DEFAULT current_timestamp(),
+  `UpdationDate` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Volcado de datos para la tabla `tblclasses`
+--
+
+INSERT INTO `tblclasses` (`id`, `ClassName`, `ClassNameNumeric`, `Section`, `CreationDate`, `UpdationDate`) VALUES
+(1, 'Desarrollo Software', 1, 'DS3A', '2022-09-04 08:31:45', NULL),
+(67, 'Mecanica Indusrtial', 2, 'M3A', '2024-10-16 13:45:39', NULL),
+(68, 'Mecanica Indusrtial', 3, 'M3B', '2024-10-16 13:46:14', NULL),
+(69, 'Mecanica Indusrtial', 4, 'M3C', '2024-10-16 13:46:26', NULL),
+(70, 'Mantenimiento Automotriz', 5, 'A3A', '2024-10-16 13:47:07', NULL),
+(71, 'Mantenimiento Automotriz', 6, 'A3B', '2024-10-16 13:47:25', NULL),
+(72, 'Mantenimiento Automotriz', 7, 'A3C', '2024-10-16 13:47:43', NULL),
+(73, 'Mantenimiento Automotriz', 8, 'A3D', '2024-10-16 13:47:58', NULL),
+(74, 'Sistemas Eléctricos', 9, 'ELT3A', '2024-10-16 13:51:05', NULL),
+(75, 'Sistemas Eléctricos', 10, 'ELT3B', '2024-10-16 13:51:33', NULL),
+(76, 'Sistemas Eléctricos', 11, 'ELT3C', '2024-10-16 13:51:51', NULL),
+(77, 'Electrónica', 12, 'EL3A', '2024-10-16 13:52:24', NULL),
+(78, 'Electrónica', 13, 'EL3B', '2024-10-16 13:52:38', NULL),
+(79, 'Electrónica', 14, 'EL3C', '2024-10-16 13:53:22', NULL),
+(80, 'Infraestructura Tecnológica y Sistemas Informáticos', 15, 'ITS3A', '2024-10-16 13:55:34', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tblnotice`
+--
+
+CREATE TABLE `tblnotice` (
+  `id` int(11) NOT NULL,
+  `noticeTitle` varchar(255) DEFAULT NULL,
+  `noticeDetails` mediumtext DEFAULT NULL,
+  `postingDate` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tblnotice`
+--
+
+INSERT INTO `tblnotice` (`id`, `noticeTitle`, `noticeDetails`, `postingDate`) VALUES
+(3, 'expo-inti', '250y 26 de octubre!', '2024-09-26 17:15:44'),
+(6, 'hace cafe', 'nos abandono kevin', '2024-09-30 21:22:02'),
+(7, 'el lunes no hay clases', 'no hay poque', '2024-10-03 17:21:47'),
+(9, 'suspension de clase', 'no hay clases mañana', '2024-10-08 17:08:14');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tblresult`
+--
+
+CREATE TABLE `tblresult` (
+  `id` int(11) NOT NULL,
+  `StudentId` int(11) DEFAULT NULL,
+  `ClassId` int(11) DEFAULT NULL,
+  `SubjectId` int(11) DEFAULT NULL,
+  `marks` int(11) DEFAULT NULL,
+  `PostingDate` timestamp NULL DEFAULT current_timestamp(),
+  `UpdationDate` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Volcado de datos para la tabla `tblresult`
+--
+
+INSERT INTO `tblresult` (`id`, `StudentId`, `ClassId`, `SubjectId`, `marks`, `PostingDate`, `UpdationDate`) VALUES
+(1, 1, 1, 2, 10, '2022-09-04 08:41:18', NULL),
+(2, 1, 1, 3, 10, '2022-09-04 08:41:18', NULL),
+(3, 1, 1, 5, 10, '2022-09-04 08:41:18', NULL),
+(4, 1, 1, 1, 10, '2022-09-04 08:41:18', NULL),
+(5, 1, 1, 4, 10, '2022-09-04 08:41:18', NULL),
+(6, 3, 1, 2, 8, '2022-09-04 09:56:54', NULL),
+(7, 3, 1, 3, 6, '2022-09-04 09:56:54', NULL),
+(8, 3, 1, 5, 8, '2022-09-04 09:56:54', NULL),
+(9, 3, 1, 1, 7, '2022-09-04 09:56:54', NULL),
+(10, 3, 1, 4, 6, '2022-09-04 09:56:54', NULL),
+(11, 6, 1, 1, 9, '2024-10-03 17:18:18', NULL),
+(12, 6, 1, 5, 10, '2024-10-03 17:18:18', NULL),
+(13, 6, 1, 2, 8, '2024-10-03 17:18:18', NULL),
+(14, 6, 1, 3, 7, '2024-10-03 17:18:18', NULL),
+(15, 6, 1, 4, 8, '2024-10-03 17:18:18', NULL),
+(16, 8, 1, 1, 5, '2024-10-03 17:31:29', NULL),
+(17, 8, 1, 5, 6, '2024-10-03 17:31:29', NULL),
+(18, 8, 1, 2, 7, '2024-10-03 17:31:29', NULL),
+(19, 8, 1, 3, 8, '2024-10-03 17:31:29', NULL),
+(20, 8, 1, 4, 6, '2024-10-03 17:31:29', NULL),
+(21, 9, 1, 1, 8, '2024-10-03 17:34:39', NULL),
+(22, 9, 1, 5, 8, '2024-10-03 17:34:39', NULL),
+(23, 9, 1, 2, 9, '2024-10-03 17:34:39', NULL),
+(24, 9, 1, 3, 8, '2024-10-03 17:34:39', NULL),
+(25, 9, 1, 4, 10, '2024-10-03 17:34:39', NULL),
+(26, 9, 1, 1, 8, '2024-10-04 13:12:28', NULL),
+(27, 9, 1, 5, 8, '2024-10-04 13:12:28', NULL),
+(28, 9, 1, 2, 9, '2024-10-04 13:12:28', NULL),
+(29, 9, 1, 3, 8, '2024-10-04 13:12:28', NULL),
+(30, 9, 1, 4, 10, '2024-10-04 13:12:28', NULL),
+(31, 10, 1, 1, 10, '2024-10-08 17:12:04', NULL),
+(32, 10, 1, 5, 10, '2024-10-08 17:12:04', NULL),
+(33, 10, 1, 2, 10, '2024-10-08 17:12:04', NULL),
+(34, 10, 1, 3, 10, '2024-10-08 17:12:04', NULL),
+(35, 10, 1, 4, 10, '2024-10-08 17:12:04', NULL),
+(36, 10, 1, 1, 10, '2024-10-09 13:26:26', NULL),
+(37, 10, 1, 5, 10, '2024-10-09 13:26:26', NULL),
+(38, 10, 1, 2, 10, '2024-10-09 13:26:26', NULL),
+(39, 10, 1, 3, 10, '2024-10-09 13:26:26', NULL),
+(40, 10, 1, 4, 10, '2024-10-09 13:26:26', NULL),
+(41, 10, 1, 1, 10, '2024-10-09 13:28:52', NULL),
+(42, 10, 1, 5, 10, '2024-10-09 13:28:52', NULL),
+(43, 10, 1, 2, 10, '2024-10-09 13:28:52', NULL),
+(44, 10, 1, 3, 10, '2024-10-09 13:28:52', NULL),
+(45, 10, 1, 4, 10, '2024-10-09 13:28:52', NULL),
+(46, 10, 1, 1, 10, '2024-10-09 13:29:10', NULL),
+(47, 10, 1, 5, 10, '2024-10-09 13:29:10', NULL),
+(48, 10, 1, 2, 10, '2024-10-09 13:29:10', NULL),
+(49, 10, 1, 3, 10, '2024-10-09 13:29:10', NULL),
+(50, 10, 1, 4, 10, '2024-10-09 13:29:10', NULL),
+(51, 10, 1, 1, 10, '2024-10-09 13:31:02', NULL),
+(52, 10, 1, 5, 10, '2024-10-09 13:31:02', NULL),
+(53, 10, 1, 2, 10, '2024-10-09 13:31:02', NULL),
+(54, 10, 1, 3, 10, '2024-10-09 13:31:02', NULL),
+(55, 10, 1, 4, 10, '2024-10-09 13:31:02', NULL),
+(56, 10, 1, 1, 10, '2024-10-09 13:32:03', NULL),
+(57, 10, 1, 5, 10, '2024-10-09 13:32:03', NULL),
+(58, 10, 1, 2, 10, '2024-10-09 13:32:03', NULL),
+(59, 10, 1, 3, 10, '2024-10-09 13:32:03', NULL),
+(60, 10, 1, 4, 10, '2024-10-09 13:32:03', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tblstudents`
+--
+
+CREATE TABLE `tblstudents` (
+  `StudentId` int(11) NOT NULL,
+  `StudentName` varchar(100) DEFAULT NULL,
+  `RollId` varchar(100) DEFAULT NULL,
+  `StudentEmail` varchar(100) DEFAULT NULL,
+  `Gender` varchar(10) DEFAULT NULL,
+  `DOB` varchar(100) DEFAULT NULL,
+  `ClassId` int(11) DEFAULT NULL,
+  `RegDate` timestamp NULL DEFAULT current_timestamp(),
+  `UpdationDate` timestamp NULL DEFAULT NULL,
+  `Status` int(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Volcado de datos para la tabla `tblstudents`
+--
+
+INSERT INTO `tblstudents` (`StudentId`, `StudentName`, `RollId`, `StudentEmail`, `Gender`, `DOB`, `ClassId`, `RegDate`, `UpdationDate`, `Status`) VALUES
+(1, 'Jennifer', '1', 'jenycarpio@gmail.com', 'Female', '2004-05-18', 1, '2022-09-04 08:38:05', NULL, 1),
+(2, 'Rodolfo', '2', 'rodolfo@gmail.com', 'Male', '2000-08-31', 1, '2022-09-04 08:38:32', NULL, 1),
+(3, 'Mario', '3', 'mario@gmail.com', 'Male', '2001-09-02', 1, '2022-09-04 09:56:15', NULL, 1),
+(6, 'jefferson steven berrios calzadilla', '43', 'bc202234@inti.edu.sv', 'Male', '2024-02-02', 1, '2024-10-03 17:16:11', NULL, 1),
+(8, 'Brandon Neftali Ambrogi Guerrero', '1450', 'ag202231@inti.edu.sv', 'Male', '1450-08-15', 1, '2024-10-03 17:30:48', NULL, 1),
+(9, 'wilber', '1702', 'ac320200@inti.edu.sv', 'Male', '2004-07-12', 1, '2024-10-03 17:33:08', NULL, 1),
+(10, 'Nestor Iván Arévalo Morales', '12345', 'am202217@inti.edu.sv', 'Male', '2024-02-13', 1, '2024-10-08 17:11:24', NULL, 1),
+(12, 'Luis Fernando Morales', '1', 'luis.morales@gmail.com', 'Masculino', '1991-04-15', 67, '2023-01-15 14:30:45', NULL, 1),
+(13, 'Andrea Patricia Martínez', '2', 'andrea.martinez@gmail.com', 'Femenino', '1992-07-22', 67, '2023-01-16 15:40:10', NULL, 1),
+(14, 'Carlos Eduardo Pérez', '3', 'carlos.perez@gmail.com', 'Masculino', '1990-09-12', 67, '2023-01-17 16:45:20', NULL, 1),
+(15, 'María Fernanda González', '4', 'maria.gonzalez@gmail.com', 'Femenino', '1993-05-18', 67, '2023-01-18 17:50:30', NULL, 1),
+(16, 'Jorge Luis Ramírez', '5', 'jorge.ramirez@gmail.com', 'Masculino', '1994-08-25', 67, '2023-01-19 18:55:40', NULL, 1),
+(17, 'Sofía Beatriz Vargas', '6', 'sofia.vargas@gmail.com', 'Femenino', '1995-10-30', 67, '2023-01-20 19:00:50', NULL, 1),
+(18, 'Juan Pablo Castillo', '7', 'juan.castillo@gmail.com', 'Masculino', '1996-01-05', 67, '2023-01-21 20:05:15', NULL, 1),
+(19, 'Gabriela Elena Torres', '8', 'gabriela.torres@gmail.com', 'Femenino', '1992-03-19', 67, '2023-01-22 21:10:25', NULL, 1),
+(20, 'Ricardo Esteban Rojas', '9', 'ricardo.rojas@gmail.com', 'Masculino', '1997-11-02', 67, '2023-01-23 22:15:35', NULL, 1),
+(21, 'Valentina Lucía Morales', '10', 'valentina.morales@gmail.com', 'Femenino', '1998-04-22', 67, '2023-01-24 23:20:45', NULL, 1),
+(22, 'Martín Alejandro Herrera', '11', 'martin.herrera@gmail.com', 'Masculino', '1990-12-14', 67, '2023-01-26 00:25:55', NULL, 1),
+(23, 'Daniela Isabel Suárez', '12', 'daniela.suarez@gmail.com', 'Femenino', '1993-06-30', 67, '2023-01-27 01:30:05', NULL, 1),
+(24, 'Santiago Javier Díaz', '13', 'santiago.diaz@gmail.com', 'Masculino', '1995-09-18', 67, '2023-01-28 02:35:15', NULL, 1),
+(25, 'Laura Patricia Salazar', '14', 'laura.salazar@gmail.com', 'Femenino', '1992-01-25', 67, '2023-01-29 03:40:25', NULL, 1),
+(26, 'Felipe Andrés Castillo', '15', 'felipe.castillo@gmail.com', 'Masculino', '1994-08-03', 67, '2023-01-30 04:45:35', NULL, 1),
+(27, 'Mónica Alejandra Muñoz', '16', 'monica.munoz@gmail.com', 'Femenino', '1991-10-12', 67, '2023-01-31 05:50:45', NULL, 1),
+(28, 'Manuel Enrique Rodríguez', '17', 'manuel.rodriguez@gmail.com', 'Masculino', '1993-03-29', 67, '2023-01-31 15:00:00', NULL, 1),
+(29, 'Camila Valeria Pérez', '18', 'camila.perez@gmail.com', 'Femenino', '1996-07-14', 67, '2023-02-01 15:05:10', NULL, 1),
+(30, 'Raúl Emilio Sánchez', '19', 'raul.sanchez@gmail.com', 'Masculino', '1997-05-20', 67, '2023-02-02 15:10:20', NULL, 1),
+(31, 'Natalia Victoria Rivas', '20', 'natalia.rivas@gmail.com', 'Femenino', '1998-02-28', 67, '2023-02-03 15:15:30', NULL, 1),
+(32, 'Diego Sebastián Romero', '21', 'diego.romero@gmail.com', 'Masculino', '1992-11-08', 67, '2023-02-04 15:20:40', NULL, 1),
+(33, 'Paola Alejandra Ortiz', '22', 'paola.ortiz@gmail.com', 'Femenino', '1993-09-25', 67, '2023-02-05 15:25:50', NULL, 1),
+(34, 'Miguel Ángel Vargas', '23', 'miguel.vargas@gmail.com', 'Masculino', '1991-01-18', 67, '2023-02-06 15:30:00', NULL, 1),
+(35, 'Liliana Patricia Mendoza', '24', 'liliana.mendoza@gmail.com', 'Femenino', '1994-12-05', 67, '2023-02-07 15:35:10', NULL, 1),
+(36, 'Álvaro José Gutiérrez', '25', 'alvaro.gutierrez@gmail.com', 'Masculino', '1996-06-23', 67, '2023-02-08 15:40:20', NULL, 1),
+(37, 'Diana Marcela Silva', '26', 'diana.silva@gmail.com', 'Femenino', '1997-03-08', 67, '2023-02-09 15:45:30', NULL, 1),
+(38, 'Francisco Javier Ramírez', '27', 'francisco.ramirez@gmail.com', 'Masculino', '1995-11-17', 67, '2023-02-10 15:50:40', NULL, 1),
+(39, 'Claudia Andrea López', '28', 'claudia.lopez@gmail.com', 'Femenino', '1998-05-19', 67, '2023-02-11 15:55:50', NULL, 1),
+(40, 'José Antonio Rivera', '29', 'jose.rivera@gmail.com', 'Masculino', '1991-02-27', 67, '2023-02-12 16:00:00', NULL, 1),
+(41, 'Carolina Fernanda Medina', '30', 'carolina.medina@gmail.com', 'Femenino', '1992-07-07', 67, '2023-02-13 16:05:10', NULL, 1),
+(42, 'Luis Fernando Morales', '1', 'luis.morales@gmail.com', 'Masculino', '1991-04-15', 68, '2023-01-15 14:30:45', NULL, 1),
+(43, 'Andrea Patricia Martínez', '2', 'andrea.martinez@gmail.com', 'Femenino', '1992-07-22', 68, '2023-01-16 15:40:10', NULL, 1),
+(44, 'Carlos Eduardo Pérez', '3', 'carlos.perez@gmail.com', 'Masculino', '1990-09-12', 68, '2023-01-17 16:45:20', NULL, 1),
+(45, 'María Fernanda González', '4', 'maria.gonzalez@gmail.com', 'Femenino', '1993-05-18', 68, '2023-01-18 17:50:30', NULL, 1),
+(46, 'Jorge Luis Ramírez', '5', 'jorge.ramirez@gmail.com', 'Masculino', '1994-08-25', 68, '2023-01-19 18:55:40', NULL, 1),
+(47, 'Sofía Beatriz Vargas', '6', 'sofia.vargas@gmail.com', 'Femenino', '1995-10-30', 68, '2023-01-20 19:00:50', NULL, 1),
+(48, 'Juan Pablo Castillo', '7', 'juan.castillo@gmail.com', 'Masculino', '1996-01-05', 68, '2023-01-21 20:05:15', NULL, 1),
+(49, 'Gabriela Elena Torres', '8', 'gabriela.torres@gmail.com', 'Femenino', '1992-03-19', 68, '2023-01-22 21:10:25', NULL, 1),
+(50, 'Ricardo Esteban Rojas', '9', 'ricardo.rojas@gmail.com', 'Masculino', '1997-11-02', 68, '2023-01-23 22:15:35', NULL, 1),
+(51, 'Valentina Lucía Morales', '10', 'valentina.morales@gmail.com', 'Femenino', '1998-04-22', 68, '2023-01-24 23:20:45', NULL, 1),
+(52, 'Martín Alejandro Herrera', '11', 'martin.herrera@gmail.com', 'Masculino', '1990-12-14', 68, '2023-01-26 00:25:55', NULL, 1),
+(53, 'Daniela Isabel Suárez', '12', 'daniela.suarez@gmail.com', 'Femenino', '1993-06-30', 68, '2023-01-27 01:30:05', NULL, 1),
+(54, 'Santiago Javier Díaz', '13', 'santiago.diaz@gmail.com', 'Masculino', '1995-09-18', 68, '2023-01-28 02:35:15', NULL, 1),
+(55, 'Laura Patricia Salazar', '14', 'laura.salazar@gmail.com', 'Femenino', '1992-01-25', 68, '2023-01-29 03:40:25', NULL, 1),
+(56, 'Felipe Andrés Castillo', '15', 'felipe.castillo@gmail.com', 'Masculino', '1994-08-03', 68, '2023-01-30 04:45:35', NULL, 1),
+(57, 'Mónica Alejandra Muñoz', '16', 'monica.munoz@gmail.com', 'Femenino', '1991-10-12', 68, '2023-01-31 05:50:45', NULL, 1),
+(58, 'Manuel Enrique Rodríguez', '17', 'manuel.rodriguez@gmail.com', 'Masculino', '1993-03-29', 68, '2023-01-31 15:00:00', NULL, 1),
+(59, 'Camila Valeria Pérez', '18', 'camila.perez@gmail.com', 'Femenino', '1996-07-14', 68, '2023-02-01 15:05:10', NULL, 1),
+(60, 'Raúl Emilio Sánchez', '19', 'raul.sanchez@gmail.com', 'Masculino', '1997-05-20', 68, '2023-02-02 15:10:20', NULL, 1),
+(61, 'Natalia Victoria Rivas', '20', 'natalia.rivas@gmail.com', 'Femenino', '1998-02-28', 68, '2023-02-03 15:15:30', NULL, 1),
+(62, 'Diego Sebastián Romero', '21', 'diego.romero@gmail.com', 'Masculino', '1992-11-08', 68, '2023-02-04 15:20:40', NULL, 1),
+(63, 'Paola Alejandra Ortiz', '22', 'paola.ortiz@gmail.com', 'Femenino', '1993-09-25', 68, '2023-02-05 15:25:50', NULL, 1),
+(64, 'Miguel Ángel Vargas', '23', 'miguel.vargas@gmail.com', 'Masculino', '1991-01-18', 68, '2023-02-06 15:30:00', NULL, 1),
+(65, 'Liliana Patricia Mendoza', '24', 'liliana.mendoza@gmail.com', 'Femenino', '1994-12-05', 68, '2023-02-07 15:35:10', NULL, 1),
+(66, 'Álvaro José Gutiérrez', '25', 'alvaro.gutierrez@gmail.com', 'Masculino', '1996-06-23', 68, '2023-02-08 15:40:20', NULL, 1),
+(67, 'Diana Marcela Silva', '26', 'diana.silva@gmail.com', 'Femenino', '1997-03-08', 68, '2023-02-09 15:45:30', NULL, 1),
+(68, 'Francisco Javier Ramírez', '27', 'francisco.ramirez@gmail.com', 'Masculino', '1995-11-17', 68, '2023-02-10 15:50:40', NULL, 1),
+(69, 'Claudia Andrea López', '28', 'claudia.lopez@gmail.com', 'Femenino', '1998-05-19', 68, '2023-02-11 15:55:50', NULL, 1),
+(70, 'José Antonio Rivera', '29', 'jose.rivera@gmail.com', 'Masculino', '1991-02-27', 68, '2023-02-12 16:00:00', NULL, 1),
+(71, 'Carolina Fernanda Medina', '30', 'carolina.medina@gmail.com', 'Femenino', '1992-07-07', 68, '2023-02-13 16:05:10', NULL, 1),
+(72, 'Abantika Suresh Ahire', '1', 'abantikaahire@gmail.com', 'Femenino', '1991-09-06', 70, '2022-09-04 14:38:05', NULL, 1),
+(73, 'Alejandro González', '2', 'alejandro.gonzalez@example.com', 'Masculino', '1992-01-15', 70, '2022-09-05 15:00:00', NULL, 1),
+(74, 'Mariana López', '3', 'mariana.lopez@example.com', 'Femenino', '1993-02-20', 70, '2022-09-06 16:15:00', NULL, 1),
+(75, 'Ricardo Pérez', '4', 'ricardo.perez@example.com', 'Masculino', '1990-03-25', 70, '2022-09-07 17:30:00', NULL, 1),
+(76, 'Laura Martínez', '5', 'laura.martinez@example.com', 'Femenino', '1991-04-30', 70, '2022-09-08 18:45:00', NULL, 1),
+(77, 'Santiago Torres', '6', 'santiago.torres@example.com', 'Masculino', '1992-05-15', 70, '2022-09-09 20:00:00', NULL, 1),
+(78, 'Camila Ramírez', '7', 'camila.ramirez@example.com', 'Femenino', '1990-06-10', 70, '2022-09-10 21:15:00', NULL, 1),
+(79, 'Diego Hernández', '8', 'diego.hernandez@example.com', 'Masculino', '1993-07-05', 70, '2022-09-11 22:30:00', NULL, 1),
+(80, 'Valeria Castro', '9', 'valeria.castro@example.com', 'Femenino', '1991-08-20', 70, '2022-09-12 23:45:00', NULL, 1),
+(81, 'Javier Morales', '10', 'javier.morales@example.com', 'Masculino', '1992-09-25', 70, '2022-09-14 00:00:00', NULL, 1),
+(82, 'Tatiana Aguirre', '11', 'tatiana.aguirre@example.com', 'Femenino', '1990-10-30', 70, '2022-09-15 01:15:00', NULL, 1),
+(83, 'Sebastián Jiménez', '12', 'sebastian.jimenez@example.com', 'Masculino', '1993-11-15', 70, '2022-09-16 02:30:00', NULL, 1),
+(84, 'Isabella Mendoza', '13', 'isabella.mendoza@example.com', 'Femenino', '1991-12-20', 70, '2022-09-17 03:45:00', NULL, 1),
+(85, 'Nicolás Salazar', '14', 'nicolas.salazar@example.com', 'Masculino', '1990-01-10', 70, '2022-09-18 04:00:00', NULL, 1),
+(86, 'Ana Clara Vélez', '15', 'anaclara.velez@example.com', 'Femenino', '1992-02-05', 70, '2022-09-19 05:15:00', NULL, 1),
+(87, 'Gabriel Pinto', '16', 'gabriel.pinto@example.com', 'Masculino', '1993-03-15', 70, '2022-09-19 14:00:00', NULL, 1),
+(88, 'Lucía Delgado', '17', 'lucia.delgado@example.com', 'Femenino', '1991-04-20', 70, '2022-09-20 15:30:00', NULL, 1),
+(89, 'Mateo Ceballos', '18', 'mateo.ceballos@example.com', 'Masculino', '1990-05-30', 70, '2022-09-21 16:45:00', NULL, 1),
+(90, 'Camila Suárez', '19', 'camila.suarez@example.com', 'Femenino', '1992-06-18', 70, '2022-09-22 17:00:00', NULL, 1),
+(91, 'Felipe León', '20', 'felipe.leon@example.com', 'Masculino', '1993-07-25', 70, '2022-09-23 18:15:00', NULL, 1),
+(92, 'Paola Ortega', '21', 'paola.ortega@example.com', 'Femenino', '1991-08-30', 70, '2022-09-24 19:30:00', NULL, 1),
+(93, 'Matías Quintero', '22', 'matias.quintero@example.com', 'Masculino', '1992-09-05', 70, '2022-09-25 20:45:00', NULL, 1),
+(94, 'Sofía Villalobos', '23', 'sofia.villalobos@example.com', 'Femenino', '1993-10-15', 70, '2022-09-26 21:00:00', NULL, 1),
+(95, 'Andrés Mejía', '24', 'andres.mejia@example.com', 'Masculino', '1990-11-20', 70, '2022-09-27 22:15:00', NULL, 1),
+(96, 'Carla Ríos', '25', 'carla.rios@example.com', 'Femenino', '1992-12-25', 70, '2022-09-28 23:30:00', NULL, 1),
+(97, 'José Antonio Vargas', '26', 'jose.vargas@example.com', 'Masculino', '1993-01-30', 70, '2022-09-30 00:45:00', NULL, 1),
+(98, 'Natalia Álvarez', '27', 'natalia.alvarez@example.com', 'Femenino', '1991-02-15', 70, '2022-10-01 01:00:00', NULL, 1),
+(99, 'Juan Diego González', '28', 'juandiego.gonzalez@example.com', 'Masculino', '1992-03-20', 70, '2022-10-02 02:15:00', NULL, 1),
+(100, 'María del Pilar Torres', '29', 'mariapilar.torres@example.com', 'Femenino', '1993-04-30', 70, '2022-10-03 03:30:00', NULL, 1),
+(101, 'Carlos Alberto Cortés', '30', 'carlos.cortes@example.com', 'Masculino', '1990-05-15', 70, '2022-10-04 04:45:00', NULL, 1),
+(102, 'Abantika Suresh Ahire', '1', 'abantikaahire@gmail.com', 'Femenino', '1991-09-06', 71, '2022-09-04 14:38:05', NULL, 1),
+(103, 'Alejandro González', '2', 'alejandro.gonzalez@example.com', 'Masculino', '1992-01-15', 71, '2022-09-05 15:00:00', NULL, 1),
+(104, 'Mariana López', '3', 'mariana.lopez@example.com', 'Femenino', '1993-02-20', 71, '2022-09-06 16:15:00', NULL, 1),
+(105, 'Ricardo Pérez', '4', 'ricardo.perez@example.com', 'Masculino', '1990-03-25', 71, '2022-09-07 17:30:00', NULL, 1),
+(106, 'Laura Martínez', '5', 'laura.martinez@example.com', 'Femenino', '1991-04-30', 71, '2022-09-08 18:45:00', NULL, 1),
+(107, 'Santiago Torres', '6', 'santiago.torres@example.com', 'Masculino', '1992-05-15', 71, '2022-09-09 20:00:00', NULL, 1),
+(108, 'Camila Ramírez', '7', 'camila.ramirez@example.com', 'Femenino', '1990-06-10', 71, '2022-09-10 21:15:00', NULL, 1),
+(109, 'Diego Hernández', '8', 'diego.hernandez@example.com', 'Masculino', '1993-07-05', 71, '2022-09-11 22:30:00', NULL, 1),
+(110, 'Valeria Castro', '9', 'valeria.castro@example.com', 'Femenino', '1991-08-20', 71, '2022-09-12 23:45:00', NULL, 1),
+(111, 'Javier Morales', '10', 'javier.morales@example.com', 'Masculino', '1992-09-25', 71, '2022-09-14 00:00:00', NULL, 1),
+(112, 'Tatiana Aguirre', '11', 'tatiana.aguirre@example.com', 'Femenino', '1990-10-30', 71, '2022-09-15 01:15:00', NULL, 1),
+(113, 'Sebastián Jiménez', '12', 'sebastian.jimenez@example.com', 'Masculino', '1993-11-15', 71, '2022-09-16 02:30:00', NULL, 1),
+(114, 'Isabella Mendoza', '13', 'isabella.mendoza@example.com', 'Femenino', '1991-12-20', 71, '2022-09-17 03:45:00', NULL, 1),
+(115, 'Nicolás Salazar', '14', 'nicolas.salazar@example.com', 'Masculino', '1990-01-10', 71, '2022-09-18 04:00:00', NULL, 1),
+(116, 'Ana Clara Vélez', '15', 'anaclara.velez@example.com', 'Femenino', '1992-02-05', 71, '2022-09-19 05:15:00', NULL, 1),
+(117, 'Gabriel Pinto', '16', 'gabriel.pinto@example.com', 'Masculino', '1993-03-15', 71, '2022-09-19 14:00:00', NULL, 1),
+(118, 'Lucía Delgado', '17', 'lucia.delgado@example.com', 'Femenino', '1991-04-20', 71, '2022-09-20 15:30:00', NULL, 1),
+(119, 'Mateo Ceballos', '18', 'mateo.ceballos@example.com', 'Masculino', '1990-05-30', 71, '2022-09-21 16:45:00', NULL, 1),
+(120, 'Camila Suárez', '19', 'camila.suarez@example.com', 'Femenino', '1992-06-18', 71, '2022-09-22 17:00:00', NULL, 1),
+(121, 'Felipe León', '20', 'felipe.leon@example.com', 'Masculino', '1993-07-25', 71, '2022-09-23 18:15:00', NULL, 1),
+(122, 'Paola Ortega', '21', 'paola.ortega@example.com', 'Femenino', '1991-08-30', 71, '2022-09-24 19:30:00', NULL, 1),
+(123, 'Matías Quintero', '22', 'matias.quintero@example.com', 'Masculino', '1992-09-05', 71, '2022-09-25 20:45:00', NULL, 1),
+(124, 'Sofía Villalobos', '23', 'sofia.villalobos@example.com', 'Femenino', '1993-10-15', 71, '2022-09-26 21:00:00', NULL, 1),
+(125, 'Andrés Mejía', '24', 'andres.mejia@example.com', 'Masculino', '1990-11-20', 71, '2022-09-27 22:15:00', NULL, 1),
+(126, 'Carla Ríos', '25', 'carla.rios@example.com', 'Femenino', '1992-12-25', 71, '2022-09-28 23:30:00', NULL, 1),
+(127, 'José Antonio Vargas', '26', 'jose.vargas@example.com', 'Masculino', '1993-01-30', 71, '2022-09-30 00:45:00', NULL, 1),
+(128, 'Natalia Álvarez', '27', 'natalia.alvarez@example.com', 'Femenino', '1991-02-15', 71, '2022-10-01 01:00:00', NULL, 1),
+(129, 'Juan Diego González', '28', 'juandiego.gonzalez@example.com', 'Masculino', '1992-03-20', 71, '2022-10-02 02:15:00', NULL, 1),
+(130, 'María del Pilar Torres', '29', 'mariapilar.torres@example.com', 'Femenino', '1993-04-30', 71, '2022-10-03 03:30:00', NULL, 1),
+(131, 'Carlos Alberto Cortés', '30', 'carlos.cortes@example.com', 'Masculino', '1990-05-15', 71, '2022-10-04 04:45:00', NULL, 1),
+(132, 'Abantika Suresh Ahire', '1', 'abantikaahire@gmail.com', 'Femenino', '1991-09-06', 72, '2022-09-04 14:38:05', NULL, 1),
+(133, 'Alejandro González', '2', 'alejandro.gonzalez@example.com', 'Masculino', '1992-01-15', 72, '2022-09-05 15:00:00', NULL, 1),
+(134, 'Mariana López', '3', 'mariana.lopez@example.com', 'Femenino', '1993-02-20', 72, '2022-09-06 16:15:00', NULL, 1),
+(135, 'Ricardo Pérez', '4', 'ricardo.perez@example.com', 'Masculino', '1990-03-25', 72, '2022-09-07 17:30:00', NULL, 1),
+(136, 'Laura Martínez', '5', 'laura.martinez@example.com', 'Femenino', '1991-04-30', 72, '2022-09-08 18:45:00', NULL, 1),
+(137, 'Santiago Torres', '6', 'santiago.torres@example.com', 'Masculino', '1992-05-15', 72, '2022-09-09 20:00:00', NULL, 1),
+(138, 'Camila Ramírez', '7', 'camila.ramirez@example.com', 'Femenino', '1990-06-10', 72, '2022-09-10 21:15:00', NULL, 1),
+(139, 'Diego Hernández', '8', 'diego.hernandez@example.com', 'Masculino', '1993-07-05', 72, '2022-09-11 22:30:00', NULL, 1),
+(140, 'Valeria Castro', '9', 'valeria.castro@example.com', 'Femenino', '1991-08-20', 72, '2022-09-12 23:45:00', NULL, 1),
+(141, 'Javier Morales', '10', 'javier.morales@example.com', 'Masculino', '1992-09-25', 72, '2022-09-14 00:00:00', NULL, 1),
+(142, 'Tatiana Aguirre', '11', 'tatiana.aguirre@example.com', 'Femenino', '1990-10-30', 72, '2022-09-15 01:15:00', NULL, 1),
+(143, 'Sebastián Jiménez', '12', 'sebastian.jimenez@example.com', 'Masculino', '1993-11-15', 72, '2022-09-16 02:30:00', NULL, 1),
+(144, 'Isabella Mendoza', '13', 'isabella.mendoza@example.com', 'Femenino', '1991-12-20', 72, '2022-09-17 03:45:00', NULL, 1),
+(145, 'Nicolás Salazar', '14', 'nicolas.salazar@example.com', 'Masculino', '1990-01-10', 72, '2022-09-18 04:00:00', NULL, 1),
+(146, 'Ana Clara Vélez', '15', 'anaclara.velez@example.com', 'Femenino', '1992-02-05', 72, '2022-09-19 05:15:00', NULL, 1),
+(147, 'Gabriel Pinto', '16', 'gabriel.pinto@example.com', 'Masculino', '1993-03-15', 72, '2022-09-19 14:00:00', NULL, 1),
+(148, 'Lucía Delgado', '17', 'lucia.delgado@example.com', 'Femenino', '1991-04-20', 72, '2022-09-20 15:30:00', NULL, 1),
+(149, 'Mateo Ceballos', '18', 'mateo.ceballos@example.com', 'Masculino', '1990-05-30', 72, '2022-09-21 16:45:00', NULL, 1),
+(150, 'Camila Suárez', '19', 'camila.suarez@example.com', 'Femenino', '1992-06-18', 72, '2022-09-22 17:00:00', NULL, 1),
+(151, 'Felipe León', '20', 'felipe.leon@example.com', 'Masculino', '1993-07-25', 72, '2022-09-23 18:15:00', NULL, 1),
+(152, 'Paola Ortega', '21', 'paola.ortega@example.com', 'Femenino', '1991-08-30', 72, '2022-09-24 19:30:00', NULL, 1),
+(153, 'Matías Quintero', '22', 'matias.quintero@example.com', 'Masculino', '1992-09-05', 72, '2022-09-25 20:45:00', NULL, 1),
+(154, 'Sofía Villalobos', '23', 'sofia.villalobos@example.com', 'Femenino', '1993-10-15', 72, '2022-09-26 21:00:00', NULL, 1),
+(155, 'Andrés Mejía', '24', 'andres.mejia@example.com', 'Masculino', '1990-11-20', 72, '2022-09-27 22:15:00', NULL, 1),
+(156, 'Carla Ríos', '25', 'carla.rios@example.com', 'Femenino', '1992-12-25', 72, '2022-09-28 23:30:00', NULL, 1),
+(157, 'José Antonio Vargas', '26', 'jose.vargas@example.com', 'Masculino', '1993-01-30', 72, '2022-09-30 00:45:00', NULL, 1),
+(158, 'Natalia Álvarez', '27', 'natalia.alvarez@example.com', 'Femenino', '1991-02-15', 72, '2022-10-01 01:00:00', NULL, 1),
+(159, 'Juan Diego González', '28', 'juandiego.gonzalez@example.com', 'Masculino', '1992-03-20', 72, '2022-10-02 02:15:00', NULL, 1),
+(160, 'María del Pilar Torres', '29', 'mariapilar.torres@example.com', 'Femenino', '1993-04-30', 72, '2022-10-03 03:30:00', NULL, 1),
+(161, 'Carlos Alberto Cortés', '30', 'carlos.cortes@example.com', 'Masculino', '1990-05-15', 72, '2022-10-04 04:45:00', NULL, 1),
+(162, 'Abantika Suresh Ahire', '1', 'abantikaahire@gmail.com', 'Femenino', '1991-09-06', 73, '2022-09-04 14:38:05', NULL, 1),
+(163, 'Alejandro González', '2', 'alejandro.gonzalez@example.com', 'Masculino', '1992-01-15', 73, '2022-09-05 15:00:00', NULL, 1),
+(164, 'Mariana López', '3', 'mariana.lopez@example.com', 'Femenino', '1993-02-20', 73, '2022-09-06 16:15:00', NULL, 1),
+(165, 'Ricardo Pérez', '4', 'ricardo.perez@example.com', 'Masculino', '1990-03-25', 73, '2022-09-07 17:30:00', NULL, 1),
+(166, 'Laura Martínez', '5', 'laura.martinez@example.com', 'Femenino', '1991-04-30', 73, '2022-09-08 18:45:00', NULL, 1),
+(167, 'Santiago Torres', '6', 'santiago.torres@example.com', 'Masculino', '1992-05-15', 73, '2022-09-09 20:00:00', NULL, 1),
+(168, 'Camila Ramírez', '7', 'camila.ramirez@example.com', 'Femenino', '1990-06-10', 73, '2022-09-10 21:15:00', NULL, 1),
+(169, 'Diego Hernández', '8', 'diego.hernandez@example.com', 'Masculino', '1993-07-05', 73, '2022-09-11 22:30:00', NULL, 1),
+(170, 'Valeria Castro', '9', 'valeria.castro@example.com', 'Femenino', '1991-08-20', 73, '2022-09-12 23:45:00', NULL, 1),
+(171, 'Javier Morales', '10', 'javier.morales@example.com', 'Masculino', '1992-09-25', 73, '2022-09-14 00:00:00', NULL, 1),
+(172, 'Tatiana Aguirre', '11', 'tatiana.aguirre@example.com', 'Femenino', '1990-10-30', 73, '2022-09-15 01:15:00', NULL, 1),
+(173, 'Sebastián Jiménez', '12', 'sebastian.jimenez@example.com', 'Masculino', '1993-11-15', 73, '2022-09-16 02:30:00', NULL, 1),
+(174, 'Isabella Mendoza', '13', 'isabella.mendoza@example.com', 'Femenino', '1991-12-20', 73, '2022-09-17 03:45:00', NULL, 1),
+(175, 'Nicolás Salazar', '14', 'nicolas.salazar@example.com', 'Masculino', '1990-01-10', 73, '2022-09-18 04:00:00', NULL, 1),
+(176, 'Ana Clara Vélez', '15', 'anaclara.velez@example.com', 'Femenino', '1992-02-05', 73, '2022-09-19 05:15:00', NULL, 1),
+(177, 'Gabriel Pinto', '16', 'gabriel.pinto@example.com', 'Masculino', '1993-03-15', 73, '2022-09-19 14:00:00', NULL, 1),
+(178, 'Lucía Delgado', '17', 'lucia.delgado@example.com', 'Femenino', '1991-04-20', 73, '2022-09-20 15:30:00', NULL, 1),
+(179, 'Mateo Ceballos', '18', 'mateo.ceballos@example.com', 'Masculino', '1990-05-30', 73, '2022-09-21 16:45:00', NULL, 1),
+(180, 'Camila Suárez', '19', 'camila.suarez@example.com', 'Femenino', '1992-06-18', 73, '2022-09-22 17:00:00', NULL, 1),
+(181, 'Felipe León', '20', 'felipe.leon@example.com', 'Masculino', '1993-07-25', 73, '2022-09-23 18:15:00', NULL, 1),
+(182, 'Paola Ortega', '21', 'paola.ortega@example.com', 'Femenino', '1991-08-30', 73, '2022-09-24 19:30:00', NULL, 1),
+(183, 'Matías Quintero', '22', 'matias.quintero@example.com', 'Masculino', '1992-09-05', 73, '2022-09-25 20:45:00', NULL, 1),
+(184, 'Sofía Villalobos', '23', 'sofia.villalobos@example.com', 'Femenino', '1993-10-15', 73, '2022-09-26 21:00:00', NULL, 1),
+(185, 'Andrés Mejía', '24', 'andres.mejia@example.com', 'Masculino', '1990-11-20', 73, '2022-09-27 22:15:00', NULL, 1),
+(186, 'Carla Ríos', '25', 'carla.rios@example.com', 'Femenino', '1992-12-25', 73, '2022-09-28 23:30:00', NULL, 1),
+(187, 'José Antonio Vargas', '26', 'jose.vargas@example.com', 'Masculino', '1993-01-30', 73, '2022-09-30 00:45:00', NULL, 1),
+(188, 'Natalia Álvarez', '27', 'natalia.alvarez@example.com', 'Femenino', '1991-02-15', 73, '2022-10-01 01:00:00', NULL, 1),
+(189, 'Juan Diego González', '28', 'juandiego.gonzalez@example.com', 'Masculino', '1992-03-20', 73, '2022-10-02 02:15:00', NULL, 1),
+(190, 'María del Pilar Torres', '29', 'mariapilar.torres@example.com', 'Femenino', '1993-04-30', 73, '2022-10-03 03:30:00', NULL, 1),
+(191, 'Carlos Alberto Cortés', '30', 'carlos.cortes@example.com', 'Masculino', '1990-05-15', 73, '2022-10-04 04:45:00', NULL, 1),
+(192, 'Abantika Suresh Ahire', '1', 'abantikaahire@gmail.com', 'Femenino', '1991-09-06', 74, '2022-09-04 14:38:05', NULL, 1),
+(193, 'Alejandro González', '2', 'alejandro.gonzalez@example.com', 'Masculino', '1992-01-15', 74, '2022-09-05 15:00:00', NULL, 1),
+(194, 'Mariana López', '3', 'mariana.lopez@example.com', 'Femenino', '1993-02-20', 74, '2022-09-06 16:15:00', NULL, 1),
+(195, 'Ricardo Pérez', '4', 'ricardo.perez@example.com', 'Masculino', '1990-03-25', 74, '2022-09-07 17:30:00', NULL, 1),
+(196, 'Laura Martínez', '5', 'laura.martinez@example.com', 'Femenino', '1991-04-30', 74, '2022-09-08 18:45:00', NULL, 1),
+(197, 'Santiago Torres', '6', 'santiago.torres@example.com', 'Masculino', '1992-05-15', 74, '2022-09-09 20:00:00', NULL, 1),
+(198, 'Camila Ramírez', '7', 'camila.ramirez@example.com', 'Femenino', '1990-06-10', 74, '2022-09-10 21:15:00', NULL, 1),
+(199, 'Diego Hernández', '8', 'diego.hernandez@example.com', 'Masculino', '1993-07-05', 74, '2022-09-11 22:30:00', NULL, 1),
+(200, 'Valeria Castro', '9', 'valeria.castro@example.com', 'Femenino', '1991-08-20', 74, '2022-09-12 23:45:00', NULL, 1),
+(201, 'Javier Morales', '10', 'javier.morales@example.com', 'Masculino', '1992-09-25', 74, '2022-09-14 00:00:00', NULL, 1),
+(202, 'Tatiana Aguirre', '11', 'tatiana.aguirre@example.com', 'Femenino', '1990-10-30', 74, '2022-09-15 01:15:00', NULL, 1),
+(203, 'Sebastián Jiménez', '12', 'sebastian.jimenez@example.com', 'Masculino', '1993-11-15', 74, '2022-09-16 02:30:00', NULL, 1),
+(204, 'Isabella Mendoza', '13', 'isabella.mendoza@example.com', 'Femenino', '1991-12-20', 74, '2022-09-17 03:45:00', NULL, 1),
+(205, 'Nicolás Salazar', '14', 'nicolas.salazar@example.com', 'Masculino', '1990-01-10', 74, '2022-09-18 04:00:00', NULL, 1),
+(206, 'Ana Clara Vélez', '15', 'anaclara.velez@example.com', 'Femenino', '1992-02-05', 74, '2022-09-19 05:15:00', NULL, 1),
+(207, 'Gabriel Pinto', '16', 'gabriel.pinto@example.com', 'Masculino', '1993-03-15', 74, '2022-09-19 14:00:00', NULL, 1),
+(208, 'Lucía Delgado', '17', 'lucia.delgado@example.com', 'Femenino', '1991-04-20', 74, '2022-09-20 15:30:00', NULL, 1),
+(209, 'Mateo Ceballos', '18', 'mateo.ceballos@example.com', 'Masculino', '1990-05-30', 74, '2022-09-21 16:45:00', NULL, 1),
+(210, 'Camila Suárez', '19', 'camila.suarez@example.com', 'Femenino', '1992-06-18', 74, '2022-09-22 17:00:00', NULL, 1),
+(211, 'Felipe León', '20', 'felipe.leon@example.com', 'Masculino', '1993-07-25', 74, '2022-09-23 18:15:00', NULL, 1),
+(212, 'Paola Ortega', '21', 'paola.ortega@example.com', 'Femenino', '1991-08-30', 74, '2022-09-24 19:30:00', NULL, 1),
+(213, 'Matías Quintero', '22', 'matias.quintero@example.com', 'Masculino', '1992-09-05', 74, '2022-09-25 20:45:00', NULL, 1),
+(214, 'Sofía Villalobos', '23', 'sofia.villalobos@example.com', 'Femenino', '1993-10-15', 74, '2022-09-26 21:00:00', NULL, 1),
+(215, 'Andrés Mejía', '24', 'andres.mejia@example.com', 'Masculino', '1990-11-20', 74, '2022-09-27 22:15:00', NULL, 1),
+(216, 'Carla Ríos', '25', 'carla.rios@example.com', 'Femenino', '1992-12-25', 74, '2022-09-28 23:30:00', NULL, 1),
+(217, 'José Antonio Vargas', '26', 'jose.vargas@example.com', 'Masculino', '1993-01-30', 74, '2022-09-30 00:45:00', NULL, 1),
+(218, 'Natalia Álvarez', '27', 'natalia.alvarez@example.com', 'Femenino', '1991-02-15', 74, '2022-10-01 01:00:00', NULL, 1),
+(219, 'Juan Diego González', '28', 'juandiego.gonzalez@example.com', 'Masculino', '1992-03-20', 74, '2022-10-02 02:15:00', NULL, 1),
+(220, 'María del Pilar Torres', '29', 'mariapilar.torres@example.com', 'Femenino', '1993-04-30', 74, '2022-10-03 03:30:00', NULL, 1),
+(221, 'Carlos Alberto Cortés', '30', 'carlos.cortes@example.com', 'Masculino', '1990-05-15', 74, '2022-10-04 04:45:00', NULL, 1),
+(222, 'Abantika Suresh Ahire', '1', 'abantikaahire@gmail.com', 'Femenino', '1991-09-06', 75, '2022-09-04 14:38:05', NULL, 1),
+(223, 'Alejandro González', '2', 'alejandro.gonzalez@example.com', 'Masculino', '1992-01-15', 75, '2022-09-05 15:00:00', NULL, 1),
+(224, 'Mariana López', '3', 'mariana.lopez@example.com', 'Femenino', '1993-02-20', 75, '2022-09-06 16:15:00', NULL, 1),
+(225, 'Ricardo Pérez', '4', 'ricardo.perez@example.com', 'Masculino', '1990-03-25', 75, '2022-09-07 17:30:00', NULL, 1),
+(226, 'Laura Martínez', '5', 'laura.martinez@example.com', 'Femenino', '1991-04-30', 75, '2022-09-08 18:45:00', NULL, 1),
+(227, 'Santiago Torres', '6', 'santiago.torres@example.com', 'Masculino', '1992-05-15', 75, '2022-09-09 20:00:00', NULL, 1),
+(228, 'Camila Ramírez', '7', 'camila.ramirez@example.com', 'Femenino', '1990-06-10', 75, '2022-09-10 21:15:00', NULL, 1),
+(229, 'Diego Hernández', '8', 'diego.hernandez@example.com', 'Masculino', '1993-07-05', 75, '2022-09-11 22:30:00', NULL, 1),
+(230, 'Valeria Castro', '9', 'valeria.castro@example.com', 'Femenino', '1991-08-20', 75, '2022-09-12 23:45:00', NULL, 1),
+(231, 'Javier Morales', '10', 'javier.morales@example.com', 'Masculino', '1992-09-25', 75, '2022-09-14 00:00:00', NULL, 1),
+(232, 'Tatiana Aguirre', '11', 'tatiana.aguirre@example.com', 'Femenino', '1990-10-30', 75, '2022-09-15 01:15:00', NULL, 1),
+(233, 'Sebastián Jiménez', '12', 'sebastian.jimenez@example.com', 'Masculino', '1993-11-15', 75, '2022-09-16 02:30:00', NULL, 1),
+(234, 'Isabella Mendoza', '13', 'isabella.mendoza@example.com', 'Femenino', '1991-12-20', 75, '2022-09-17 03:45:00', NULL, 1),
+(235, 'Nicolás Salazar', '14', 'nicolas.salazar@example.com', 'Masculino', '1990-01-10', 75, '2022-09-18 04:00:00', NULL, 1),
+(236, 'Ana Clara Vélez', '15', 'anaclara.velez@example.com', 'Femenino', '1992-02-05', 75, '2022-09-19 05:15:00', NULL, 1),
+(237, 'Gabriel Pinto', '16', 'gabriel.pinto@example.com', 'Masculino', '1993-03-15', 75, '2022-09-19 14:00:00', NULL, 1),
+(238, 'Lucía Delgado', '17', 'lucia.delgado@example.com', 'Femenino', '1991-04-20', 75, '2022-09-20 15:30:00', NULL, 1),
+(239, 'Mateo Ceballos', '18', 'mateo.ceballos@example.com', 'Masculino', '1990-05-30', 75, '2022-09-21 16:45:00', NULL, 1),
+(240, 'Camila Suárez', '19', 'camila.suarez@example.com', 'Femenino', '1992-06-18', 75, '2022-09-22 17:00:00', NULL, 1),
+(241, 'Felipe León', '20', 'felipe.leon@example.com', 'Masculino', '1993-07-25', 75, '2022-09-23 18:15:00', NULL, 1),
+(242, 'Paola Ortega', '21', 'paola.ortega@example.com', 'Femenino', '1991-08-30', 75, '2022-09-24 19:30:00', NULL, 1),
+(243, 'Matías Quintero', '22', 'matias.quintero@example.com', 'Masculino', '1992-09-05', 75, '2022-09-25 20:45:00', NULL, 1),
+(244, 'Sofía Villalobos', '23', 'sofia.villalobos@example.com', 'Femenino', '1993-10-15', 75, '2022-09-26 21:00:00', NULL, 1),
+(245, 'Andrés Mejía', '24', 'andres.mejia@example.com', 'Masculino', '1990-11-20', 75, '2022-09-27 22:15:00', NULL, 1),
+(246, 'Carla Ríos', '25', 'carla.rios@example.com', 'Femenino', '1992-12-25', 75, '2022-09-28 23:30:00', NULL, 1),
+(247, 'José Antonio Vargas', '26', 'jose.vargas@example.com', 'Masculino', '1993-01-30', 75, '2022-09-30 00:45:00', NULL, 1),
+(248, 'Natalia Álvarez', '27', 'natalia.alvarez@example.com', 'Femenino', '1991-02-15', 75, '2022-10-01 01:00:00', NULL, 1),
+(249, 'Juan Diego González', '28', 'juandiego.gonzalez@example.com', 'Masculino', '1992-03-20', 75, '2022-10-02 02:15:00', NULL, 1),
+(250, 'María del Pilar Torres', '29', 'mariapilar.torres@example.com', 'Femenino', '1993-04-30', 75, '2022-10-03 03:30:00', NULL, 1),
+(251, 'Carlos Alberto Cortés', '30', 'carlos.cortes@example.com', 'Masculino', '1990-05-15', 75, '2022-10-04 04:45:00', NULL, 1),
+(252, 'Abantika Suresh Ahire', '1', 'abantikaahire@gmail.com', 'Femenino', '1991-09-06', 76, '2022-09-04 14:38:05', NULL, 1),
+(253, 'Alejandro González', '2', 'alejandro.gonzalez@example.com', 'Masculino', '1992-01-15', 76, '2022-09-05 15:00:00', NULL, 1),
+(254, 'Mariana López', '3', 'mariana.lopez@example.com', 'Femenino', '1993-02-20', 76, '2022-09-06 16:15:00', NULL, 1),
+(255, 'Ricardo Pérez', '4', 'ricardo.perez@example.com', 'Masculino', '1990-03-25', 76, '2022-09-07 17:30:00', NULL, 1),
+(256, 'Laura Martínez', '5', 'laura.martinez@example.com', 'Femenino', '1991-04-30', 76, '2022-09-08 18:45:00', NULL, 1),
+(257, 'Santiago Torres', '6', 'santiago.torres@example.com', 'Masculino', '1992-05-15', 76, '2022-09-09 20:00:00', NULL, 1),
+(258, 'Camila Ramírez', '7', 'camila.ramirez@example.com', 'Femenino', '1990-06-10', 76, '2022-09-10 21:15:00', NULL, 1),
+(259, 'Diego Hernández', '8', 'diego.hernandez@example.com', 'Masculino', '1993-07-05', 76, '2022-09-11 22:30:00', NULL, 1),
+(260, 'Valeria Castro', '9', 'valeria.castro@example.com', 'Femenino', '1991-08-20', 76, '2022-09-12 23:45:00', NULL, 1),
+(261, 'Javier Morales', '10', 'javier.morales@example.com', 'Masculino', '1992-09-25', 76, '2022-09-14 00:00:00', NULL, 1),
+(262, 'Tatiana Aguirre', '11', 'tatiana.aguirre@example.com', 'Femenino', '1990-10-30', 76, '2022-09-15 01:15:00', NULL, 1),
+(263, 'Sebastián Jiménez', '12', 'sebastian.jimenez@example.com', 'Masculino', '1993-11-15', 76, '2022-09-16 02:30:00', NULL, 1),
+(264, 'Isabella Mendoza', '13', 'isabella.mendoza@example.com', 'Femenino', '1991-12-20', 76, '2022-09-17 03:45:00', NULL, 1),
+(265, 'Nicolás Salazar', '14', 'nicolas.salazar@example.com', 'Masculino', '1990-01-10', 76, '2022-09-18 04:00:00', NULL, 1),
+(266, 'Ana Clara Vélez', '15', 'anaclara.velez@example.com', 'Femenino', '1992-02-05', 76, '2022-09-19 05:15:00', NULL, 1),
+(267, 'Gabriel Pinto', '16', 'gabriel.pinto@example.com', 'Masculino', '1993-03-15', 76, '2022-09-19 14:00:00', NULL, 1),
+(268, 'Lucía Delgado', '17', 'lucia.delgado@example.com', 'Femenino', '1991-04-20', 76, '2022-09-20 15:30:00', NULL, 1),
+(269, 'Mateo Ceballos', '18', 'mateo.ceballos@example.com', 'Masculino', '1990-05-30', 76, '2022-09-21 16:45:00', NULL, 1),
+(270, 'Camila Suárez', '19', 'camila.suarez@example.com', 'Femenino', '1992-06-18', 76, '2022-09-22 17:00:00', NULL, 1),
+(271, 'Felipe León', '20', 'felipe.leon@example.com', 'Masculino', '1993-07-25', 76, '2022-09-23 18:15:00', NULL, 1),
+(272, 'Paola Ortega', '21', 'paola.ortega@example.com', 'Femenino', '1991-08-30', 76, '2022-09-24 19:30:00', NULL, 1),
+(273, 'Matías Quintero', '22', 'matias.quintero@example.com', 'Masculino', '1992-09-05', 76, '2022-09-25 20:45:00', NULL, 1),
+(274, 'Sofía Villalobos', '23', 'sofia.villalobos@example.com', 'Femenino', '1993-10-15', 76, '2022-09-26 21:00:00', NULL, 1),
+(275, 'Andrés Mejía', '24', 'andres.mejia@example.com', 'Masculino', '1990-11-20', 76, '2022-09-27 22:15:00', NULL, 1),
+(276, 'Carla Ríos', '25', 'carla.rios@example.com', 'Femenino', '1992-12-25', 76, '2022-09-28 23:30:00', NULL, 1),
+(277, 'José Antonio Vargas', '26', 'jose.vargas@example.com', 'Masculino', '1993-01-30', 76, '2022-09-30 00:45:00', NULL, 1),
+(278, 'Natalia Álvarez', '27', 'natalia.alvarez@example.com', 'Femenino', '1991-02-15', 76, '2022-10-01 01:00:00', NULL, 1),
+(279, 'Juan Diego González', '28', 'juandiego.gonzalez@example.com', 'Masculino', '1992-03-20', 76, '2022-10-02 02:15:00', NULL, 1),
+(280, 'María del Pilar Torres', '29', 'mariapilar.torres@example.com', 'Femenino', '1993-04-30', 76, '2022-10-03 03:30:00', NULL, 1),
+(281, 'Carlos Alberto Cortés', '30', 'carlos.cortes@example.com', 'Masculino', '1990-05-15', 76, '2022-10-04 04:45:00', NULL, 1),
+(282, 'Abantika Suresh Ahire', '1', 'abantikaahire@gmail.com', 'Femenino', '1991-09-06', 77, '2022-09-04 14:38:05', NULL, 1),
+(283, 'Alejandro González', '2', 'alejandro.gonzalez@example.com', 'Masculino', '1992-01-15', 77, '2022-09-05 15:00:00', NULL, 1),
+(284, 'Mariana López', '3', 'mariana.lopez@example.com', 'Femenino', '1993-02-20', 77, '2022-09-06 16:15:00', NULL, 1),
+(285, 'Ricardo Pérez', '4', 'ricardo.perez@example.com', 'Masculino', '1990-03-25', 77, '2022-09-07 17:30:00', NULL, 1),
+(286, 'Laura Martínez', '5', 'laura.martinez@example.com', 'Femenino', '1991-04-30', 77, '2022-09-08 18:45:00', NULL, 1),
+(287, 'Santiago Torres', '6', 'santiago.torres@example.com', 'Masculino', '1992-05-15', 77, '2022-09-09 20:00:00', NULL, 1),
+(288, 'Camila Ramírez', '7', 'camila.ramirez@example.com', 'Femenino', '1990-06-10', 77, '2022-09-10 21:15:00', NULL, 1),
+(289, 'Diego Hernández', '8', 'diego.hernandez@example.com', 'Masculino', '1993-07-05', 77, '2022-09-11 22:30:00', NULL, 1),
+(290, 'Valeria Castro', '9', 'valeria.castro@example.com', 'Femenino', '1991-08-20', 77, '2022-09-12 23:45:00', NULL, 1),
+(291, 'Javier Morales', '10', 'javier.morales@example.com', 'Masculino', '1992-09-25', 77, '2022-09-14 00:00:00', NULL, 1),
+(292, 'Tatiana Aguirre', '11', 'tatiana.aguirre@example.com', 'Femenino', '1990-10-30', 77, '2022-09-15 01:15:00', NULL, 1),
+(293, 'Sebastián Jiménez', '12', 'sebastian.jimenez@example.com', 'Masculino', '1993-11-15', 77, '2022-09-16 02:30:00', NULL, 1),
+(294, 'Isabella Mendoza', '13', 'isabella.mendoza@example.com', 'Femenino', '1991-12-20', 77, '2022-09-17 03:45:00', NULL, 1),
+(295, 'Nicolás Salazar', '14', 'nicolas.salazar@example.com', 'Masculino', '1990-01-10', 77, '2022-09-18 04:00:00', NULL, 1),
+(296, 'Ana Clara Vélez', '15', 'anaclara.velez@example.com', 'Femenino', '1992-02-05', 77, '2022-09-19 05:15:00', NULL, 1),
+(297, 'Gabriel Pinto', '16', 'gabriel.pinto@example.com', 'Masculino', '1993-03-15', 77, '2022-09-19 14:00:00', NULL, 1),
+(298, 'Lucía Delgado', '17', 'lucia.delgado@example.com', 'Femenino', '1991-04-20', 77, '2022-09-20 15:30:00', NULL, 1),
+(299, 'Mateo Ceballos', '18', 'mateo.ceballos@example.com', 'Masculino', '1990-05-30', 77, '2022-09-21 16:45:00', NULL, 1),
+(300, 'Camila Suárez', '19', 'camila.suarez@example.com', 'Femenino', '1992-06-18', 77, '2022-09-22 17:00:00', NULL, 1),
+(301, 'Felipe León', '20', 'felipe.leon@example.com', 'Masculino', '1993-07-25', 77, '2022-09-23 18:15:00', NULL, 1),
+(302, 'Paola Ortega', '21', 'paola.ortega@example.com', 'Femenino', '1991-08-30', 77, '2022-09-24 19:30:00', NULL, 1),
+(303, 'Matías Quintero', '22', 'matias.quintero@example.com', 'Masculino', '1992-09-05', 77, '2022-09-25 20:45:00', NULL, 1),
+(304, 'Sofía Villalobos', '23', 'sofia.villalobos@example.com', 'Femenino', '1993-10-15', 77, '2022-09-26 21:00:00', NULL, 1),
+(305, 'Andrés Mejía', '24', 'andres.mejia@example.com', 'Masculino', '1990-11-20', 77, '2022-09-27 22:15:00', NULL, 1),
+(306, 'Carla Ríos', '25', 'carla.rios@example.com', 'Femenino', '1992-12-25', 77, '2022-09-28 23:30:00', NULL, 1),
+(307, 'José Antonio Vargas', '26', 'jose.vargas@example.com', 'Masculino', '1993-01-30', 77, '2022-09-30 00:45:00', NULL, 1),
+(308, 'Natalia Álvarez', '27', 'natalia.alvarez@example.com', 'Femenino', '1991-02-15', 77, '2022-10-01 01:00:00', NULL, 1),
+(309, 'Juan Diego González', '28', 'juandiego.gonzalez@example.com', 'Masculino', '1992-03-20', 77, '2022-10-02 02:15:00', NULL, 1),
+(310, 'María del Pilar Torres', '29', 'mariapilar.torres@example.com', 'Femenino', '1993-04-30', 77, '2022-10-03 03:30:00', NULL, 1),
+(311, 'Carlos Alberto Cortés', '30', 'carlos.cortes@example.com', 'Masculino', '1990-05-15', 77, '2022-10-04 04:45:00', NULL, 1),
+(312, 'Abantika Suresh Ahire', '1', 'abantikaahire@gmail.com', 'Femenino', '1991-09-06', 78, '2022-09-04 14:38:05', NULL, 1),
+(313, 'Alejandro González', '2', 'alejandro.gonzalez@example.com', 'Masculino', '1992-01-15', 78, '2022-09-05 15:00:00', NULL, 1),
+(314, 'Mariana López', '3', 'mariana.lopez@example.com', 'Femenino', '1993-02-20', 78, '2022-09-06 16:15:00', NULL, 1),
+(315, 'Ricardo Pérez', '4', 'ricardo.perez@example.com', 'Masculino', '1990-03-25', 78, '2022-09-07 17:30:00', NULL, 1),
+(316, 'Laura Martínez', '5', 'laura.martinez@example.com', 'Femenino', '1991-04-30', 78, '2022-09-08 18:45:00', NULL, 1),
+(317, 'Santiago Torres', '6', 'santiago.torres@example.com', 'Masculino', '1992-05-15', 78, '2022-09-09 20:00:00', NULL, 1),
+(318, 'Camila Ramírez', '7', 'camila.ramirez@example.com', 'Femenino', '1990-06-10', 78, '2022-09-10 21:15:00', NULL, 1),
+(319, 'Diego Hernández', '8', 'diego.hernandez@example.com', 'Masculino', '1993-07-05', 78, '2022-09-11 22:30:00', NULL, 1),
+(320, 'Valeria Castro', '9', 'valeria.castro@example.com', 'Femenino', '1991-08-20', 78, '2022-09-12 23:45:00', NULL, 1),
+(321, 'Javier Morales', '10', 'javier.morales@example.com', 'Masculino', '1992-09-25', 78, '2022-09-14 00:00:00', NULL, 1),
+(322, 'Tatiana Aguirre', '11', 'tatiana.aguirre@example.com', 'Femenino', '1990-10-30', 78, '2022-09-15 01:15:00', NULL, 1),
+(323, 'Sebastián Jiménez', '12', 'sebastian.jimenez@example.com', 'Masculino', '1993-11-15', 78, '2022-09-16 02:30:00', NULL, 1),
+(324, 'Isabella Mendoza', '13', 'isabella.mendoza@example.com', 'Femenino', '1991-12-20', 78, '2022-09-17 03:45:00', NULL, 1),
+(325, 'Nicolás Salazar', '14', 'nicolas.salazar@example.com', 'Masculino', '1990-01-10', 78, '2022-09-18 04:00:00', NULL, 1),
+(326, 'Ana Clara Vélez', '15', 'anaclara.velez@example.com', 'Femenino', '1992-02-05', 78, '2022-09-19 05:15:00', NULL, 1),
+(327, 'Gabriel Pinto', '16', 'gabriel.pinto@example.com', 'Masculino', '1993-03-15', 78, '2022-09-19 14:00:00', NULL, 1),
+(328, 'Lucía Delgado', '17', 'lucia.delgado@example.com', 'Femenino', '1991-04-20', 78, '2022-09-20 15:30:00', NULL, 1),
+(329, 'Mateo Ceballos', '18', 'mateo.ceballos@example.com', 'Masculino', '1990-05-30', 78, '2022-09-21 16:45:00', NULL, 1),
+(330, 'Camila Suárez', '19', 'camila.suarez@example.com', 'Femenino', '1992-06-18', 78, '2022-09-22 17:00:00', NULL, 1),
+(331, 'Felipe León', '20', 'felipe.leon@example.com', 'Masculino', '1993-07-25', 78, '2022-09-23 18:15:00', NULL, 1),
+(332, 'Paola Ortega', '21', 'paola.ortega@example.com', 'Femenino', '1991-08-30', 78, '2022-09-24 19:30:00', NULL, 1),
+(333, 'Matías Quintero', '22', 'matias.quintero@example.com', 'Masculino', '1992-09-05', 78, '2022-09-25 20:45:00', NULL, 1),
+(334, 'Sofía Villalobos', '23', 'sofia.villalobos@example.com', 'Femenino', '1993-10-15', 78, '2022-09-26 21:00:00', NULL, 1),
+(335, 'Andrés Mejía', '24', 'andres.mejia@example.com', 'Masculino', '1990-11-20', 78, '2022-09-27 22:15:00', NULL, 1),
+(336, 'Carla Ríos', '25', 'carla.rios@example.com', 'Femenino', '1992-12-25', 78, '2022-09-28 23:30:00', NULL, 1),
+(337, 'José Antonio Vargas', '26', 'jose.vargas@example.com', 'Masculino', '1993-01-30', 78, '2022-09-30 00:45:00', NULL, 1),
+(338, 'Natalia Álvarez', '27', 'natalia.alvarez@example.com', 'Femenino', '1991-02-15', 78, '2022-10-01 01:00:00', NULL, 1),
+(339, 'Juan Diego González', '28', 'juandiego.gonzalez@example.com', 'Masculino', '1992-03-20', 78, '2022-10-02 02:15:00', NULL, 1),
+(340, 'María del Pilar Torres', '29', 'mariapilar.torres@example.com', 'Femenino', '1993-04-30', 78, '2022-10-03 03:30:00', NULL, 1),
+(341, 'Carlos Alberto Cortés', '30', 'carlos.cortes@example.com', 'Masculino', '1990-05-15', 78, '2022-10-04 04:45:00', NULL, 1),
+(342, 'Abantika Suresh Ahire', '1', 'abantikaahire@gmail.com', 'Femenino', '1991-09-06', 79, '2022-09-04 14:38:05', NULL, 1),
+(343, 'Alejandro González', '2', 'alejandro.gonzalez@example.com', 'Masculino', '1992-01-15', 79, '2022-09-05 15:00:00', NULL, 1),
+(344, 'Mariana López', '3', 'mariana.lopez@example.com', 'Femenino', '1993-02-20', 79, '2022-09-06 16:15:00', NULL, 1),
+(345, 'Ricardo Pérez', '4', 'ricardo.perez@example.com', 'Masculino', '1990-03-25', 79, '2022-09-07 17:30:00', NULL, 1),
+(346, 'Laura Martínez', '5', 'laura.martinez@example.com', 'Femenino', '1991-04-30', 79, '2022-09-08 18:45:00', NULL, 1),
+(347, 'Santiago Torres', '6', 'santiago.torres@example.com', 'Masculino', '1992-05-15', 79, '2022-09-09 20:00:00', NULL, 1),
+(348, 'Camila Ramírez', '7', 'camila.ramirez@example.com', 'Femenino', '1990-06-10', 79, '2022-09-10 21:15:00', NULL, 1),
+(349, 'Diego Hernández', '8', 'diego.hernandez@example.com', 'Masculino', '1993-07-05', 79, '2022-09-11 22:30:00', NULL, 1),
+(350, 'Valeria Castro', '9', 'valeria.castro@example.com', 'Femenino', '1991-08-20', 79, '2022-09-12 23:45:00', NULL, 1),
+(351, 'Javier Morales', '10', 'javier.morales@example.com', 'Masculino', '1992-09-25', 79, '2022-09-14 00:00:00', NULL, 1),
+(352, 'Tatiana Aguirre', '11', 'tatiana.aguirre@example.com', 'Femenino', '1990-10-30', 79, '2022-09-15 01:15:00', NULL, 1),
+(353, 'Sebastián Jiménez', '12', 'sebastian.jimenez@example.com', 'Masculino', '1993-11-15', 79, '2022-09-16 02:30:00', NULL, 1),
+(354, 'Isabella Mendoza', '13', 'isabella.mendoza@example.com', 'Femenino', '1991-12-20', 79, '2022-09-17 03:45:00', NULL, 1),
+(355, 'Nicolás Salazar', '14', 'nicolas.salazar@example.com', 'Masculino', '1990-01-10', 79, '2022-09-18 04:00:00', NULL, 1),
+(356, 'Ana Clara Vélez', '15', 'anaclara.velez@example.com', 'Femenino', '1992-02-05', 79, '2022-09-19 05:15:00', NULL, 1),
+(357, 'Gabriel Pinto', '16', 'gabriel.pinto@example.com', 'Masculino', '1993-03-15', 79, '2022-09-19 14:00:00', NULL, 1),
+(358, 'Lucía Delgado', '17', 'lucia.delgado@example.com', 'Femenino', '1991-04-20', 79, '2022-09-20 15:30:00', NULL, 1),
+(359, 'Mateo Ceballos', '18', 'mateo.ceballos@example.com', 'Masculino', '1990-05-30', 79, '2022-09-21 16:45:00', NULL, 1),
+(360, 'Camila Suárez', '19', 'camila.suarez@example.com', 'Femenino', '1992-06-18', 79, '2022-09-22 17:00:00', NULL, 1),
+(361, 'Felipe León', '20', 'felipe.leon@example.com', 'Masculino', '1993-07-25', 79, '2022-09-23 18:15:00', NULL, 1),
+(362, 'Paola Ortega', '21', 'paola.ortega@example.com', 'Femenino', '1991-08-30', 79, '2022-09-24 19:30:00', NULL, 1),
+(363, 'Matías Quintero', '22', 'matias.quintero@example.com', 'Masculino', '1992-09-05', 79, '2022-09-25 20:45:00', NULL, 1),
+(364, 'Sofía Villalobos', '23', 'sofia.villalobos@example.com', 'Femenino', '1993-10-15', 79, '2022-09-26 21:00:00', NULL, 1),
+(365, 'Andrés Mejía', '24', 'andres.mejia@example.com', 'Masculino', '1990-11-20', 79, '2022-09-27 22:15:00', NULL, 1),
+(366, 'Carla Ríos', '25', 'carla.rios@example.com', 'Femenino', '1992-12-25', 79, '2022-09-28 23:30:00', NULL, 1),
+(367, 'José Antonio Vargas', '26', 'jose.vargas@example.com', 'Masculino', '1993-01-30', 79, '2022-09-30 00:45:00', NULL, 1),
+(368, 'Natalia Álvarez', '27', 'natalia.alvarez@example.com', 'Femenino', '1991-02-15', 79, '2022-10-01 01:00:00', NULL, 1),
+(369, 'Juan Diego González', '28', 'juandiego.gonzalez@example.com', 'Masculino', '1992-03-20', 79, '2022-10-02 02:15:00', NULL, 1),
+(370, 'María del Pilar Torres', '29', 'mariapilar.torres@example.com', 'Femenino', '1993-04-30', 79, '2022-10-03 03:30:00', NULL, 1),
+(371, 'Carlos Alberto Cortés', '30', 'carlos.cortes@example.com', 'Masculino', '1990-05-15', 79, '2022-10-04 04:45:00', NULL, 1),
+(372, 'Abantika Suresh Ahire', '1', 'abantikaahire@gmail.com', 'Femenino', '1991-09-06', 80, '2022-09-04 14:38:05', NULL, 1),
+(373, 'Alejandro González', '2', 'alejandro.gonzalez@example.com', 'Masculino', '1992-01-15', 80, '2022-09-05 15:00:00', NULL, 1),
+(374, 'Mariana López', '3', 'mariana.lopez@example.com', 'Femenino', '1993-02-20', 80, '2022-09-06 16:15:00', NULL, 1),
+(375, 'Ricardo Pérez', '4', 'ricardo.perez@example.com', 'Masculino', '1990-03-25', 80, '2022-09-07 17:30:00', NULL, 1),
+(376, 'Laura Martínez', '5', 'laura.martinez@example.com', 'Femenino', '1991-04-30', 80, '2022-09-08 18:45:00', NULL, 1),
+(377, 'Santiago Torres', '6', 'santiago.torres@example.com', 'Masculino', '1992-05-15', 80, '2022-09-09 20:00:00', NULL, 1),
+(378, 'Camila Ramírez', '7', 'camila.ramirez@example.com', 'Femenino', '1990-06-10', 80, '2022-09-10 21:15:00', NULL, 1),
+(379, 'Diego Hernández', '8', 'diego.hernandez@example.com', 'Masculino', '1993-07-05', 80, '2022-09-11 22:30:00', NULL, 1),
+(380, 'Valeria Castro', '9', 'valeria.castro@example.com', 'Femenino', '1991-08-20', 80, '2022-09-12 23:45:00', NULL, 1),
+(381, 'Javier Morales', '10', 'javier.morales@example.com', 'Masculino', '1992-09-25', 80, '2022-09-14 00:00:00', NULL, 1),
+(382, 'Tatiana Aguirre', '11', 'tatiana.aguirre@example.com', 'Femenino', '1990-10-30', 80, '2022-09-15 01:15:00', NULL, 1),
+(383, 'Sebastián Jiménez', '12', 'sebastian.jimenez@example.com', 'Masculino', '1993-11-15', 80, '2022-09-16 02:30:00', NULL, 1),
+(384, 'Isabella Mendoza', '13', 'isabella.mendoza@example.com', 'Femenino', '1991-12-20', 80, '2022-09-17 03:45:00', NULL, 1),
+(385, 'Nicolás Salazar', '14', 'nicolas.salazar@example.com', 'Masculino', '1990-01-10', 80, '2022-09-18 04:00:00', NULL, 1),
+(386, 'Ana Clara Vélez', '15', 'anaclara.velez@example.com', 'Femenino', '1992-02-05', 80, '2022-09-19 05:15:00', NULL, 1),
+(387, 'Gabriel Pinto', '16', 'gabriel.pinto@example.com', 'Masculino', '1993-03-15', 80, '2022-09-19 14:00:00', NULL, 1),
+(388, 'Lucía Delgado', '17', 'lucia.delgado@example.com', 'Femenino', '1991-04-20', 80, '2022-09-20 15:30:00', NULL, 1),
+(389, 'Mateo Ceballos', '18', 'mateo.ceballos@example.com', 'Masculino', '1990-05-30', 80, '2022-09-21 16:45:00', NULL, 1),
+(390, 'Camila Suárez', '19', 'camila.suarez@example.com', 'Femenino', '1992-06-18', 80, '2022-09-22 17:00:00', NULL, 1),
+(391, 'Felipe León', '20', 'felipe.leon@example.com', 'Masculino', '1993-07-25', 80, '2022-09-23 18:15:00', NULL, 1),
+(392, 'Paola Ortega', '21', 'paola.ortega@example.com', 'Femenino', '1991-08-30', 80, '2022-09-24 19:30:00', NULL, 1),
+(393, 'Matías Quintero', '22', 'matias.quintero@example.com', 'Masculino', '1992-09-05', 80, '2022-09-25 20:45:00', NULL, 1),
+(394, 'Sofía Villalobos', '23', 'sofia.villalobos@example.com', 'Femenino', '1993-10-15', 80, '2022-09-26 21:00:00', NULL, 1),
+(395, 'Andrés Mejía', '24', 'andres.mejia@example.com', 'Masculino', '1990-11-20', 80, '2022-09-27 22:15:00', NULL, 1),
+(396, 'Carla Ríos', '25', 'carla.rios@example.com', 'Femenino', '1992-12-25', 80, '2022-09-28 23:30:00', NULL, 1),
+(397, 'José Antonio Vargas', '26', 'jose.vargas@example.com', 'Masculino', '1993-01-30', 80, '2022-09-30 00:45:00', NULL, 1),
+(398, 'Natalia Álvarez', '27', 'natalia.alvarez@example.com', 'Femenino', '1991-02-15', 80, '2022-10-01 01:00:00', NULL, 1),
+(399, 'Juan Diego González', '28', 'juandiego.gonzalez@example.com', 'Masculino', '1992-03-20', 80, '2022-10-02 02:15:00', NULL, 1),
+(400, 'María del Pilar Torres', '29', 'mariapilar.torres@example.com', 'Femenino', '1993-04-30', 80, '2022-10-03 03:30:00', NULL, 1),
+(401, 'Carlos Alberto Cortés', '30', 'carlos.cortes@example.com', 'Masculino', '1990-05-15', 80, '2022-10-04 04:45:00', NULL, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tblsubjectcombination`
+--
+
+CREATE TABLE `tblsubjectcombination` (
+  `id` int(11) NOT NULL,
+  `ClassId` int(11) DEFAULT NULL,
+  `SubjectId` int(11) DEFAULT NULL,
+  `status` int(1) DEFAULT NULL,
+  `CreationDate` timestamp NULL DEFAULT current_timestamp(),
+  `Updationdate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Volcado de datos para la tabla `tblsubjectcombination`
+--
+
+INSERT INTO `tblsubjectcombination` (`id`, `ClassId`, `SubjectId`, `status`, `CreationDate`, `Updationdate`) VALUES
+(1, 1, 1, 1, '2022-09-04 08:37:16', NULL),
+(2, 1, 2, 1, '2022-09-04 08:40:16', NULL),
+(3, 1, 3, 1, '2022-09-04 08:40:25', NULL),
+(4, 1, 4, 1, '2022-09-04 08:40:32', NULL),
+(5, 1, 5, 1, '2022-09-04 08:40:40', NULL),
+(6, 63, 6, 0, '2022-09-04 09:55:40', '2024-10-02 21:22:09');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tblsubjects`
+--
+
+CREATE TABLE `tblsubjects` (
+  `id` int(11) NOT NULL,
+  `SubjectName` varchar(100) NOT NULL,
+  `SubjectCode` varchar(100) DEFAULT NULL,
+  `Creationdate` timestamp NULL DEFAULT current_timestamp(),
+  `UpdationDate` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Volcado de datos para la tabla `tblsubjects`
+--
+
+INSERT INTO `tblsubjects` (`id`, `SubjectName`, `SubjectCode`, `Creationdate`, `UpdationDate`) VALUES
+(1, 'Desarrollo de software', 'DS', '2022-09-04 08:36:08', NULL),
+(2, 'Gestion de base de datos', 'DS', '2022-09-04 08:39:32', NULL),
+(3, 'Ingles tecnico', 'DS', '2022-09-04 08:39:44', NULL),
+(4, 'Mantenimiento de sistemas informaticos', 'DS', '2022-09-04 08:39:53', NULL),
+(5, 'Elaboracion de documentos para sistemas informaticos', 'DS', '2022-09-04 08:40:03', NULL),
+(6, 'Desarrollo de componentes para dispositivos moviles', 'DS', '2022-09-04 09:55:25', NULL),
+(7, 'Proyecto innovador de desarrollo de software', 'DS', '2024-10-02 21:21:20', NULL);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `tblclasses`
+--
+ALTER TABLE `tblclasses`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `tblnotice`
+--
+ALTER TABLE `tblnotice`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `tblresult`
+--
+ALTER TABLE `tblresult`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `tblstudents`
+--
+ALTER TABLE `tblstudents`
+  ADD PRIMARY KEY (`StudentId`);
+
+--
+-- Indices de la tabla `tblsubjectcombination`
+--
+ALTER TABLE `tblsubjectcombination`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `tblsubjects`
+--
+ALTER TABLE `tblsubjects`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `tblclasses`
+--
+ALTER TABLE `tblclasses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+
+--
+-- AUTO_INCREMENT de la tabla `tblnotice`
+--
+ALTER TABLE `tblnotice`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `tblresult`
+--
+ALTER TABLE `tblresult`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+
+--
+-- AUTO_INCREMENT de la tabla `tblstudents`
+--
+ALTER TABLE `tblstudents`
+  MODIFY `StudentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=402;
+
+--
+-- AUTO_INCREMENT de la tabla `tblsubjectcombination`
+--
+ALTER TABLE `tblsubjectcombination`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `tblsubjects`
+--
+ALTER TABLE `tblsubjects`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
